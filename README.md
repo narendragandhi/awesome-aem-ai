@@ -246,12 +246,6 @@ curl -fsSL https://raw.githubusercontent.com/trieloff/gh-upskill/main/install.sh
 upskill adobe/helix-website --all
 ```
 
-### Experience Modernization Agent
-
-Adobe's hosted AI development environment at [aemcoder.adobe.io](https://aemcoder.adobe.io):
-- No local setup required
-- Natural language prompts for code changes
-- Site creation, migration, and block development
 
 ---
 
