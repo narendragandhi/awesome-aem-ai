@@ -26,11 +26,14 @@
 
 ### Adobe Documentation
 - [Adobe Sensei](https://www.adobe.com/sensei.html) - Adobe's AI and machine learning framework
+- [Using MCP with AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/using-mcp-with-aem-as-a-cloud-service) - Official MCP integration guide
+- [AEM Agents Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) - Official AI agents documentation
 
 ### Adobe AI Products
 - [Adobe Firefly](https://www.adobe.com/products/firefly.html) - Generative AI for creative workflows
 - [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain
 - [Content Hub](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/content-hub/product-overview.html) - AI-enhanced asset management
+- [AI Assistant in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem-admin) - Integrated AI assistant for product knowledge and support
 
 ---
 
@@ -38,7 +41,24 @@
 
 Model Context Protocol (MCP) servers that integrate with AEM and EDS.
 
-### AEM Core
+### Official Adobe MCP Server
+
+Adobe provides official MCP servers hosted at `https://mcp.adobeaemcloud.com/adobe/mcp/`:
+
+| Server | Endpoint | Description |
+|--------|----------|-------------|
+| **Content Server** | `/content` | Full CRUD operations for pages, fragments, and assets |
+| **Content Read-Only** | `/content-readonly` | Read-only access for retrieval operations |
+
+**Key Features:**
+- Natural language interaction with AEM content
+- OAuth authentication via Adobe ID
+- Respects user's AEM permissions
+- Supports Claude, Cursor, ChatGPT, and Microsoft Copilot Studio
+
+[Official Documentation](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/using-mcp-with-aem-as-a-cloud-service)
+
+### Community MCP Servers
 
 | Name | Description | Links |
 |------|-------------|-------|
@@ -49,27 +69,27 @@ Model Context Protocol (MCP) servers that integrate with AEM and EDS.
 
 ### Edge Delivery Services
 
-| Name | Description | Links |
-|------|-------------|-------|
-| **eds-mcp-server** | MCP server for Edge Delivery Services operations | Coming Soon |
-| **helix-mcp** | Franklin/Helix project management via MCP | Coming Soon |
-| **eds-content-mcp** | Content authoring and publishing for EDS | [GitHub](https://github.com/neerajgrg93/aem-mcp-servers) |
-
-### Integrations
-
-| Name | Description | Links |
-|------|-------------|-------|
-| **aem-openai-mcp** | OpenAI integration for AEM content generation | [GitHub](https://github.com/g-a-o/aem-openai-mcp-server) |
-| **aem-anthropic-mcp** | Claude/Anthropic integration for AEM | Coming Soon |
-| **aem-translation-mcp** | AI-powered translation workflows | [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
+*Community contributions welcome! Submit EDS MCP servers via PR.*
 
 ---
 
 ## AI Agents
 
-Autonomous AI agents designed for AEM workflows.
+### Official Adobe Agents
 
-### Content Agents
+Adobe provides five official AI agents for AEM as a Cloud Service (Beta Program):
+
+| Agent | Description | Documentation |
+|-------|-------------|---------------|
+| **Experience Production Agent** | Automates high-effort, high-volume tasks by converting manual processes into AI-assisted workflows | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+| **Content Optimization Agent** | Refine assets through natural language - create renditions, adjust visual properties, change backgrounds | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+| **Discovery Agent** | Intelligent search across Assets, Content Fragments, and Adaptive Forms | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+| **Development Agent** | Streamlines code creation, debugging, deployment, and optimization for developers | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+| **Governance Agent** | Safeguards brand integrity and compliance by enforcing security and brand policies | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+
+**Availability:** AEM as a Cloud Service and Edge Delivery Services only (Beta Program required)
+
+### Community Agent Frameworks
 
 | Name | Description | Framework |
 |------|-------------|-----------|
@@ -77,23 +97,6 @@ Autonomous AI agents designed for AEM workflows.
 | **AEM SEO Agent** | SEO analysis and content optimization | CrewAI |
 | **AEM Accessibility Agent** | WCAG compliance checking and remediation | Custom |
 | **AEM Localization Agent** | Multi-language content management | LangGraph |
-
-### Development Agents
-
-| Name | Description | Framework |
-|------|-------------|-----------|
-| **AEM Component Agent** | Component scaffolding and development | Claude Code |
-| **AEM Migration Agent** | Content and code migration assistance | Custom |
-| **AEM Testing Agent** | Automated test generation and execution | Playwright |
-| **HTL Copilot** | HTL/Sightly code generation and review | GitHub Copilot |
-
-### Operations Agents
-
-| Name | Description | Framework |
-|------|-------------|-----------|
-| **AEM Dispatcher Agent** | Cache management and configuration | Custom |
-| **AEM Performance Agent** | Performance monitoring and optimization | Custom |
-| **Cloud Manager Agent** | CI/CD pipeline management | GitHub Actions |
 
 ---
 
@@ -126,16 +129,19 @@ Pre-built skills for Claude Code to work with AEM projects.
 
 | Extension | Description | Marketplace |
 |-----------|-------------|-------------|
-| **AEM Sync** | Sync code with AEM instances | [Link](https://marketplace.visualstudio.com/items?itemName=yamiew.vscode-aem-sync) |
-| **AEM HTL Support** | HTL syntax highlighting and snippets | [Link](https://marketplace.visualstudio.com/items?itemName=nicholaschiang.aem) |
-| **AEM AI Assistant** | AI-powered AEM development help | Coming Soon |
+| **AEM Sync** | Sync file changes to AEM automatically | [Link](https://marketplace.visualstudio.com/items?itemName=Yinkai15.aemsync) |
+| **VSCode AEM Sync** | Sync files, folders, nodes to AEM | [Link](https://marketplace.visualstudio.com/items?itemName=yamato-ltd.vscode-aem-sync) |
+| **AEM Dev Pack** | Extension pack for AEM/Java development | [Link](https://marketplace.visualstudio.com/items?itemName=mansquatch.ici-aem-dev-pack) |
+| **AEM Component Builder** | Creates base component structure for TouchUI and Sightly | [Link](https://marketplace.visualstudio.com/items?itemName=mansquatch.aem-component-builder) |
+| **AEM Explorer** | Integrates AEM to VS Code for development | [Link](https://marketplace.visualstudio.com/items?itemName=misonou.aemexplorer) |
+| **AEM Copilot** | GitHub Copilot for AEM Edge Delivery Services | [Link](https://marketplace.visualstudio.com/items?itemName=neerajgrg93.aem-copilot) |
+| **AEM PowerSync** | Sync files and folders with local AEM instance | [Link](https://marketplace.visualstudio.com/items?itemName=robertbrestle.aempowersync) |
 
 ### IntelliJ Plugins
 
 | Plugin | Description | Marketplace |
 |--------|-------------|-------------|
-| **AEM IDE** | Comprehensive AEM development tools | [Link](https://plugins.jetbrains.com/plugin/9863-aem-ide) |
-| **AEM Support** | AEM project support | [Link](https://plugins.jetbrains.com/plugin/8083-aem-support) |
+| **AEM Support** | Comprehensive AEM development tools | [Link](https://plugins.jetbrains.com/plugin/9863-aem-ide) |
 
 ---
 
