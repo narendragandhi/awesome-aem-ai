@@ -62,10 +62,8 @@ Adobe provides official MCP servers hosted at `https://mcp.adobeaemcloud.com/ado
 
 | Name | Description | Links |
 |------|-------------|-------|
-| **aem-mcp-server** | Core MCP server for AEM operations including content management, DAM, and workflow | [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
-| **aem-cloud-manager-mcp** | MCP server for Cloud Manager API operations | [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
+| **aem-mcp-server** | Full-featured MCP server for AEM - chat with your AEM instance via natural language | [npm](https://www.npmjs.com/package/aem-mcp-server) / [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
 | **aem-sites-mcp** | Sites-specific MCP server for page operations | [GitHub](https://github.com/pradeep-moolemane/aem-mcp) |
-| **aem-assets-mcp** | DAM and asset management MCP server | [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
 
 ### Edge Delivery Services
 
@@ -217,27 +215,43 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 ## Development Tools
 
-### CLI Tools
+### npm Packages
+
+#### Official Adobe Packages
+
+| Package | Description | Install |
+|---------|-------------|---------|
+| [@adobe/aem-cli](https://www.npmjs.com/package/@adobe/aem-cli) | AEM/EDS CLI for local development | `npm i -g @adobe/aem-cli` |
+| [@adobe/aem-headless-client-js](https://www.npmjs.com/package/@adobe/aem-headless-client-js) | AEM Headless SDK Client | `npm i @adobe/aem-headless-client-js` |
+| [@adobe/aem-import-helper](https://www.npmjs.com/package/@adobe/aem-import-helper) | Helper tool for importing sites to AEM | `npm i @adobe/aem-import-helper` |
+| [@adobe/aem-upload](https://www.npmjs.com/package/@adobe/aem-upload) | AEM Assets direct binary uploading | `npm i @adobe/aem-upload` |
+| [@adobe/aem-spa-page-model-manager](https://www.npmjs.com/package/@adobe/aem-spa-page-model-manager) | SPA Editor page model manager | `npm i @adobe/aem-spa-page-model-manager` |
+
+#### Community MCP & AI Packages
+
+| Package | Description | Install |
+|---------|-------------|---------|
+| [aem-mcp-server](https://www.npmjs.com/package/aem-mcp-server) | MCP server for AEM - chat with your AEM instance | `npm i -g aem-mcp-server` |
+| [openskills](https://www.npmjs.com/package/openskills) | Universal skills loader for AI coding agents | `npx openskills install` |
+| [claude-skills-cli](https://www.npmjs.com/package/claude-skills-cli) | CLI for creating Claude Agent Skills | `npx claude-skills-cli init` |
+
+#### Development Tools
+
+| Package | Description | Install |
+|---------|-------------|---------|
+| [aemsync](https://www.npmjs.com/package/aemsync) | Code sync for Sling/AEM | `npm i -g aemsync` |
+| [aem-clientlib-generator](https://www.npmjs.com/package/aem-clientlib-generator) | Creates AEM ClientLibs config files | `npm i aem-clientlib-generator` |
+| [aem-import-builder](https://www.npmjs.com/package/aem-import-builder) | AI capabilities for AEM import scripts | `npm i aem-import-builder` |
+
+### CLI Commands
 
 ```bash
-# AEM CLI with AI capabilities
-npm install -g @adobe/aem-cli
-
-# Edge Delivery Services CLI
-npm install -g @adobe/helix-cli
+# AEM CLI - local development server
+aem up
 
 # AEM Project Archetype
 mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=aem-project-archetype
 ```
-
-### AI-Enhanced Development
-
-| Tool | Purpose |
-|------|---------|
-| **AEM Copilot** | AI pair programming for AEM |
-| **HTL Analyzer** | AI-powered HTL code review |
-| **Component Generator** | AI-assisted component scaffolding |
-| **Migration Assistant** | AI-guided AEM migration |
 
 ---
 
