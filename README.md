@@ -245,7 +245,7 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 
 ### Getting Started
 
-1. [Introduction to AI in AEM](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/overview/aem-cloud-changes.html) - Adobe's official documentation
+1. [AI in AEM Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) - Adobe's official AI documentation
 2. Building MCP Servers for AEM - Step-by-step MCP server development (Coming Soon)
 3. Creating Claude Code Skills for AEM - Custom skill development guide (Coming Soon)
 4. AI Agents for Content Management - Building autonomous agents (Coming Soon)
@@ -259,8 +259,7 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 
 ### Certifications
 
-- [Adobe Certified Expert - AEM Sites](https://learning.adobe.com/certification.html)
-- [Adobe Certified Expert - AEM Assets](https://learning.adobe.com/certification.html)
+- [Adobe Certification Program](https://certification.adobe.com/) - AEM Sites and Assets certifications
 
 ---
 
@@ -315,10 +314,10 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 
 ## Related Awesome Lists
 
-- [Awesome AEM](https://github.com/AdobeDocs/awesome-aem) - General AEM resources
-- [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers) - MCP server collection
+- [Awesome AEM](https://github.com/emincansumer/awesome-aem) - Curated list of AEM/CQ5 resources
+- [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers) - MCP server collection (80k+ stars)
 - [Awesome LangChain](https://github.com/kyrolabs/awesome-langchain) - LangChain resources
-- [Awesome Claude](https://github.com/anthropics/awesome-claude) - Claude resources
+- [Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code) - Claude Code skills, hooks, and tools (23k+ stars)
 
 ---
 
