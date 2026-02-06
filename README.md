@@ -10,13 +10,11 @@
 - [AI Agents](#ai-agents)
 - [Claude Code Skills](#claude-code-skills)
 - [IDE Extensions & Plugins](#ide-extensions--plugins)
-- [Generative AI in AEM](#generative-ai-in-aem)
+- [AI Features by AEM Product](#ai-features-by-aem-product)
 - [Edge Delivery Services AI](#edge-delivery-services-ai)
-- [Content Intelligence](#content-intelligence)
 - [Development Tools](#development-tools)
 - [Tutorials & Learning](#tutorials--learning)
 - [Community Projects](#community-projects)
-- [Articles & Blog Posts](#articles--blog-posts)
 - [Videos & Presentations](#videos--presentations)
 - [Contributing](#contributing)
 
@@ -86,15 +84,6 @@ Adobe provides five official AI agents for AEM as a Cloud Service (Beta Program)
 | **Governance Agent** | Safeguards brand integrity and compliance by enforcing security and brand policies | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
 
 **Availability:** AEM as a Cloud Service and Edge Delivery Services only (Beta Program required)
-
-### Community Agent Frameworks
-
-| Name | Description | Framework |
-|------|-------------|-----------|
-| **AEM Content Author Agent** | Autonomous content creation and optimization | LangChain |
-| **AEM SEO Agent** | SEO analysis and content optimization | CrewAI |
-| **AEM Accessibility Agent** | WCAG compliance checking and remediation | Custom |
-| **AEM Localization Agent** | Multi-language content management | LangGraph |
 
 ---
 
@@ -169,26 +158,46 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 ---
 
-## Generative AI in AEM
+## AI Features by AEM Product
 
-### Content Generation
+### AEM Sites
 
-- **Generate Variations** - AI-powered content variation generation in AEM
-- **Smart Tags** - Automated asset tagging using AI
-- **Smart Crop** - AI-driven image cropping for responsive delivery
-- **Content Fragments AI** - AI-assisted content fragment creation
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Generate Variations** | AI-powered content variations for Content Fragments and EDS | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/generate-variations/generate-variations-integrated-editor) |
+| **Generative AI Overview** | GenAI for content creation and personalization | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/generative-ai/generative-ai-in-aem) |
 
-### Image Generation
+### AEM Assets
 
-- **Firefly Integration** - Native Adobe Firefly integration in AEM Assets
-- **Generative Fill** - AI-powered image editing and expansion
-- **Text-to-Image** - Generate images from text prompts
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Smart Tags** | Automatic AI tagging for images and videos | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/smart-tags) |
+| **Smart Crop** | AI-powered focal point detection and cropping | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/images/smart-crop-feature-video-use) |
+| **Dynamic Media AI** | Smart imaging and video optimization | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/dynamic-media-overview-feature-video-use) |
+| **Content Optimization Agent** | Natural language asset refinement | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/content-optimization/overview) |
 
-### Personalization
+### AEM Forms
 
-- **Adobe Target AI** - AI-powered personalization and A/B testing
-- **Audience AI** - Automated audience segmentation
-- **Predictive Engagement** - AI-driven engagement optimization
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Generative AI for Forms** | AI-powered form generation and panel creation | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/forms-overview/early-access-ea-features) |
+| **AI Assistant** | Product knowledge and authoring assistance | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem) |
+| **Discovery Agent** | Intelligent search across Adaptive Forms | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/discovery/overview) |
+
+### AEM Guides
+
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **AI Assistant** | Smart help and authoring features | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-guides/using/user-guide/ai-assistant-aem/ai-assistant) |
+| **Smart Suggestions** | AI-powered content reuse recommendations | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-guides/using/user-guide/ai-assistant-aem/authoring-ai-based-smart-suggestions) |
+
+### Migration & Modernization
+
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Experience Modernization Agent** | AI-assisted migration to Edge Delivery Services | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview) |
+| **Site Migration Skill** | Automated content and style migration | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/site-migration) |
+| **AEM Modernization Tools** | Convert legacy AEM to modern patterns | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/migration/moving-to-aem-as-a-cloud-service/aem-modernization-tools) |
 
 ---
 
@@ -249,25 +258,6 @@ upskill adobe/helix-website --all
 
 ---
 
-## Content Intelligence
-
-### Analytics & Insights
-
-| Tool | Description |
-|------|-------------|
-| **Content Analytics AI** | AI-powered content performance analysis |
-| **Engagement Predictor** | Predict content engagement metrics |
-| **Content Gap Analysis** | Identify content opportunities |
-
-### Asset Intelligence
-
-| Feature | Description |
-|---------|-------------|
-| **Smart Tags** | Automatic asset tagging |
-| **Visual Search** | AI-powered similar image search |
-| **Auto-Transcription** | Video/audio transcription |
-| **Face Detection** | People recognition in images |
-
 ---
 
 ## Development Tools
@@ -314,19 +304,14 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 
 ## Tutorials & Learning
 
-### Getting Started
+### Official Adobe Learning
 
-1. [AI in AEM Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) - Adobe's official AI documentation
-2. Building MCP Servers for AEM - Step-by-step MCP server development (Coming Soon)
-3. Creating Claude Code Skills for AEM - Custom skill development guide (Coming Soon)
-4. AI Agents for Content Management - Building autonomous agents (Coming Soon)
-
-### Advanced Topics
-
-1. Multi-Agent Systems for AEM - Orchestrating multiple AI agents (Coming Soon)
-2. RAG with AEM Content - Retrieval-augmented generation (Coming Soon)
-3. Fine-tuning Models for AEM - Custom model training (Coming Soon)
-4. AI-Powered Testing - Automated test generation (Coming Soon)
+| Resource | Description | Link |
+|----------|-------------|------|
+| **AI in AEM Overview** | Official AI documentation | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) |
+| **Generative AI in AEM Sites** | Video tutorial on GenAI features | [Video](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/expert-resources/cloud-5/season-3/cloud5-generative-ai-for-aem-sites) |
+| **EDS Developer Tutorial** | Get started with Edge Delivery Services | [Tutorial](https://www.aem.live/developer/tutorial) |
+| **Experience Modernization** | Getting started with migration agent | [Guide](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/getting-started) |
 
 ### Certifications
 
@@ -346,21 +331,12 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 
 ### Community Tools
 
-- **AEM Groovy Console** - Script execution for AEM
-- **AEM Easy Content Upgrade** - Content migration tool
-- **AEM Component Generator** - Component scaffolding
+| Tool | Description | Link |
+|------|-------------|------|
+| **AEM Groovy Console** | Script execution for AEM | [GitHub](https://github.com/orbinson/aem-groovy-console) |
+| **AEM Block Collection** | Curated EDS blocks | [GitHub](https://github.com/adobe/aem-block-collection) |
 
 ---
-
-## Articles & Blog Posts
-
-### Recent Articles
-
-*Community contributions welcome! Submit articles via PR.*
-
-### Technical Deep Dives
-
-*Community contributions welcome! Submit technical deep dives via PR.*
 
 ---
 
