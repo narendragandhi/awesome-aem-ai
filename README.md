@@ -102,24 +102,41 @@ Adobe provides five official AI agents for AEM as a Cloud Service (Beta Program)
 
 ## Claude Code Skills
 
-Pre-built skills for Claude Code to work with AEM projects.
+Claude Code supports custom project skills via `.claude/skills/` directory. No pre-built AEM skills exist yet in a public registry.
 
-### Available Skills
+### Creating Custom AEM Skills
 
-| Skill | Description | Installation |
-|-------|-------------|--------------|
-| **aem-htl** | HTL/Sightly templating best practices | `claude skill install aem-htl` |
-| **aem-clientlibs** | Client library management | `claude skill install aem-clientlibs` |
-| **aem-osgi** | OSGi configuration and services | `claude skill install aem-osgi` |
-| **aem-sling-models** | Sling Model development | `claude skill install aem-sling-models` |
-| **aem-testing** | AEM unit and integration testing | `claude skill install aem-testing` |
-| **eds-blocks** | Edge Delivery Services block development | `claude skill install eds-blocks` |
-| **eds-spreadsheets** | EDS spreadsheet-based content | `claude skill install eds-spreadsheets` |
+Create a skill by adding a markdown file to `.claude/skills/`:
 
-### Skill Development
+```bash
+mkdir -p .claude/skills
+```
 
-- [Claude Code Skills Documentation](https://docs.anthropic.com/claude-code/skills)
-- [Creating Custom AEM Skills](#tutorials--learning)
+Example `.claude/skills/aem-htl.md`:
+```markdown
+---
+description: HTL/Sightly templating best practices for AEM
+---
+
+When working with AEM HTL:
+- Use context-aware escaping (default behavior)
+- Prefer data-sly-use for Java/JS logic
+- Follow Sling Model patterns for backend
+- Reference: https://experienceleague.adobe.com/docs/experience-manager-htl/content/getting-started.html
+```
+
+### Suggested Skills to Create
+
+| Skill | Description |
+|-------|-------------|
+| `aem-htl` | HTL/Sightly templating best practices |
+| `aem-sling-models` | Sling Model development patterns |
+| `aem-osgi` | OSGi configuration and services |
+| `eds-blocks` | Edge Delivery Services block development |
+
+### Documentation
+
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
 
 ---
 
