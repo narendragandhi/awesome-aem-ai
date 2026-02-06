@@ -102,37 +102,25 @@ Adobe provides five official AI agents for AEM as a Cloud Service (Beta Program)
 
 ## Claude Code Skills
 
-Claude Code supports custom project skills via `.claude/skills/` directory. No pre-built AEM skills exist yet in a public registry.
+Pre-built AEM skills for Claude Code are available in this repository. Copy the `.claude/skills/` folder to your project.
 
-### Creating Custom AEM Skills
+### Available Skills
 
-Create a skill by adding a markdown file to `.claude/skills/`:
+| Skill | Description | File |
+|-------|-------------|------|
+| **aem-htl** | HTL/Sightly templating, data binding, contexts, i18n | [View](.claude/skills/aem-htl.md) |
+| **aem-sling-models** | Sling Models, injectors, delegation, exporters | [View](.claude/skills/aem-sling-models.md) |
+| **aem-osgi** | OSGi services, configs, schedulers, events | [View](.claude/skills/aem-osgi.md) |
+| **aem-clientlibs** | Client libraries, dependencies, optimization | [View](.claude/skills/aem-clientlibs.md) |
+| **aem-testing** | Unit tests, AEM Mocks, integration tests | [View](.claude/skills/aem-testing.md) |
+| **eds-blocks** | EDS block development, patterns, utilities | [View](.claude/skills/eds-blocks.md) |
+
+### Installation
 
 ```bash
-mkdir -p .claude/skills
+# Copy skills to your AEM project
+cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 ```
-
-Example `.claude/skills/aem-htl.md`:
-```markdown
----
-description: HTL/Sightly templating best practices for AEM
----
-
-When working with AEM HTL:
-- Use context-aware escaping (default behavior)
-- Prefer data-sly-use for Java/JS logic
-- Follow Sling Model patterns for backend
-- Reference: https://experienceleague.adobe.com/docs/experience-manager-htl/content/getting-started.html
-```
-
-### Suggested Skills to Create
-
-| Skill | Description |
-|-------|-------------|
-| `aem-htl` | HTL/Sightly templating best practices |
-| `aem-sling-models` | Sling Model development patterns |
-| `aem-osgi` | OSGi configuration and services |
-| `eds-blocks` | Edge Delivery Services block development |
 
 ### Documentation
 
