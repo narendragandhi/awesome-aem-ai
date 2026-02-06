@@ -100,9 +100,21 @@ Adobe provides five official AI agents for AEM as a Cloud Service (Beta Program)
 
 ## Claude Code Skills
 
-Pre-built AEM skills for Claude Code are available in this repository. Copy the `.claude/skills/` folder to your project.
+### Official Adobe EDS Skills
 
-### Available Skills
+Install official Adobe skills from [adobe/helix-website](https://github.com/adobe/helix-website/tree/main/.claude/skills):
+
+```bash
+# Install via gh-upskill
+gh extension install trieloff/gh-upskill
+gh upskill adobe/helix-website --all
+```
+
+15 skills available: `content-driven-development`, `page-import`, `building-blocks`, `content-modeling`, `testing-blocks`, `code-review`, `docs-search`, `block-inventory`, `block-collection-and-party`, `page-decomposition`, `identify-page-structure`, `scrape-webpage`, `generate-import-html`, `preview-import`, `authoring-analysis`
+
+### AEM Core Skills (This Repository)
+
+Pre-built AEM backend skills available in `.claude/skills/`:
 
 | Skill | Description | File |
 |-------|-------------|------|
@@ -116,13 +128,22 @@ Pre-built AEM skills for Claude Code are available in this repository. Copy the 
 ### Installation
 
 ```bash
-# Copy skills to your AEM project
+# Copy this repo's skills to your AEM project
 cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 ```
 
+### Skills Tools
+
+| Tool | Description | Install |
+|------|-------------|---------|
+| [gh-upskill](https://github.com/trieloff/gh-upskill) | Install skills from any GitHub repo | `gh extension install trieloff/gh-upskill` |
+| [openskills](https://www.npmjs.com/package/openskills) | Universal skills loader for AI agents | `npx openskills install` |
+| [claude-skills-cli](https://www.npmjs.com/package/claude-skills-cli) | Create and validate Claude skills | `npx claude-skills-cli init` |
+
 ### Documentation
 
-- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+- [Claude Code Skills Docs](https://code.claude.com/docs/en/skills)
+- [Agent Skills Spec](https://github.com/anthropics/skills)
 
 ---
 
@@ -173,22 +194,64 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 ## Edge Delivery Services AI
 
-### Content Authoring
+### Official Documentation (aem.live)
 
-- **Sidekick AI** - AI-enhanced Sidekick extension
-- **Block Suggester** - AI-powered block recommendations
-- **Content Optimizer** - SEO and performance optimization
+| Resource | Description | Link |
+|----------|-------------|------|
+| **Developer Tutorial** | Get started with EDS in 10-20 minutes | [Tutorial](https://www.aem.live/developer/tutorial) |
+| **AI Coding Agents** | Guide to using AI tools with EDS | [Guide](https://www.aem.live/developer/ai-coding-agents) |
+| **Block Collection** | Curated production-ready blocks | [Blocks](https://www.aem.live/developer/block-collection) |
+| **CLI Reference** | aem up, aem import commands | [CLI](https://www.aem.live/developer/cli-reference) |
+| **Block Party** | Community-built blocks showcase | [Block Party](https://www.aem.live/developer/block-party/) |
+| **Universal Editor Blocks** | Blocks for UE authoring | [UE Blocks](https://www.aem.live/developer/universal-editor-blocks) |
+| **Architecture** | Deep dive into EDS architecture | [Architecture](https://www.aem.live/docs/architecture) |
 
-### Development
+### Adobe Helix Claude Skills
 
-- **Block Generator** - AI-assisted block scaffolding
-- **Style Generator** - CSS generation from design specs
-- **Spreadsheet AI** - Intelligent spreadsheet content management
+Official skills from [adobe/helix-website](https://github.com/adobe/helix-website/tree/main/.claude/skills):
 
-### Performance
+**Orchestration Skills:**
+- `content-driven-development` - Complete workflow for building/modifying blocks
+- `page-import` - Orchestrates migrating webpages to AEM EDS
 
-- **Lighthouse AI** - Automated performance analysis and fixes
-- **Core Web Vitals Optimizer** - AI-driven CWV improvements
+**Functional Skills:**
+- `building-blocks` - Core block development
+- `content-modeling` - Content schema definitions
+- `testing-blocks` - Block testing and validation
+- `code-review` - Code review workflows
+
+**Research Skills:**
+- `docs-search` - Search AEM documentation
+- `block-inventory` - Track available blocks
+- `block-collection-and-party` - Find existing blocks
+
+**Import Skills:**
+- `page-decomposition` - Break pages into components
+- `identify-page-structure` - Detect page layout
+- `scrape-webpage` - Web scraping utilities
+- `generate-import-html` - HTML import generation
+- `preview-import` - Preview imports
+
+### Installing Adobe Skills
+
+```bash
+# Install gh-upskill extension
+gh extension install trieloff/gh-upskill
+
+# Add Adobe EDS skills to your project
+gh upskill adobe/helix-website
+
+# Or install standalone
+curl -fsSL https://raw.githubusercontent.com/trieloff/gh-upskill/main/install.sh | bash
+upskill adobe/helix-website --all
+```
+
+### Experience Modernization Agent
+
+Adobe's hosted AI development environment at [aemcoder.adobe.io](https://aemcoder.adobe.io):
+- No local setup required
+- Natural language prompts for code changes
+- Site creation, migration, and block development
 
 ---
 
