@@ -6,6 +6,7 @@
 ## Contents
 
 - [Official Resources](#official-resources)
+- [Architecture](#architecture)
 - [MCP Servers](#mcp-servers)
 - [AI Agents](#ai-agents)
 - [Claude Code Skills](#claude-code-skills)
@@ -32,6 +33,112 @@
 - [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain
 - [Content Hub](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/content-hub/product-overview.html) - AI-enhanced asset management
 - [AI Assistant in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem-admin) - Integrated AI assistant for product knowledge and support
+
+---
+
+## Architecture
+
+### Adobe Experience Platform Agent Orchestrator
+
+The [Agent Orchestrator](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/agents/agent-orchestrator) is the agentic layer powering AEM AI agents. It coordinates specialized agents across workflows and applications.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    AI Assistant (Conversational UI)                  │
+├─────────────────────────────────────────────────────────────────────┤
+│                         Reasoning Engine                             │
+│   • Interprets natural language prompts                              │
+│   • Creates step-by-step execution plans                             │
+│   • Adjusts dynamically, retries alternative approaches              │
+├─────────────────────────────────────────────────────────────────────┤
+│                    Adobe Experience Platform Agents                  │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌─────────────┐ │
+│  │  Discovery   │ │   Content    │ │  Experience  │ │ Development │ │
+│  │    Agent     │ │ Optimization │ │  Production  │ │   Support   │ │
+│  └──────────────┘ └──────────────┘ └──────────────┘ └─────────────┘ │
+├─────────────────────────────────────────────────────────────────────┤
+│                         Knowledge Base                               │
+│   • Adobe product documentation                                      │
+│   • Customer metadata & business objects                             │
+│   • Analytics data                                                   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Documentation:** [Agent Orchestrator](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/agents/agent-orchestrator) | [Platform Learn Tutorial](https://experienceleague.adobe.com/en/docs/platform-learn/tutorials/ai-assistant/agent-orchestrator-overview)
+
+### Key Components
+
+| Component | Description | Documentation |
+|-----------|-------------|---------------|
+| **Conversational Interface** | Natural language interaction via AI Assistant | [Docs](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/agents/agent-orchestrator) |
+| **Reasoning Engine** | Interprets goals, creates plans, adjusts dynamically | [Docs](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/agents/agent-orchestrator) |
+| **Knowledge Base** | Secure access to documentation, metadata, analytics | [Docs](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/agents/agent-orchestrator) |
+| **LLM Service** | Azure OpenAI or Meta Llama models | [Docs](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/agents/agent-orchestrator) |
+
+### Built-in Functional Agents
+
+| Agent | Purpose | Scope |
+|-------|---------|-------|
+| **Product Knowledge Agent** | Retrieves and answers from Adobe documentation | Documentation queries |
+| **Operational Insights Agent** | Translates questions to queries against data stores | Analytics & reporting |
+| **Product Support Agent** | Troubleshooting for AEM, Platform, CJA, Journey Optimizer | Support tickets |
+
+### Experience Modernization Agent Architecture
+
+The [Experience Modernization Agent](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview) automates migration to Edge Delivery Services:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                   Experience Modernization Console                   │
+│                      (Web Interface)                                 │
+├─────────────────────────────────────────────────────────────────────┤
+│                        AI Coding Agent                               │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │                    Migration Skills                           │   │
+│  │  • Page decomposition & section identification                │   │
+│  │  • Block mapping against library                              │   │
+│  │  • Design system extraction (colors, fonts, CSS)              │   │
+│  │  • Bulk content import                                        │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+├─────────────────────────────────────────────────────────────────────┤
+│                      Integration Layer                               │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌────────────┐  │
+│  │   GitHub    │  │    Figma    │  │  Live AEM   │  │   Source   │  │
+│  │ Integration │  │ MCP Server  │  │   Preview   │  │  Website   │  │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └────────────┘  │
+├─────────────────────────────────────────────────────────────────────┤
+│                    Edge Delivery Services                            │
+│              (Production-ready output)                               │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**Workflow:**
+1. Analyze source pages → Identify visual sections
+2. Map sections → Match against block library
+3. Extract design system → Generate CSS (colors, fonts, styles)
+4. Create PRs → GitHub integration for review
+5. Deploy → Direct to Edge Delivery Services
+
+**Documentation:** [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview) | [Getting Started](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/getting-started)
+
+### Security & Governance
+
+- **Enterprise-grade trust layer** - Built-in data access controls
+- **Consent management** - Respects data-usage policies
+- **Human oversight** - Agents follow user input and product-level access controls
+- **Transparent workflow** - Exposes reasoning logic, queries, and conversation history
+- **Audit trail** - All agent actions are logged and explainable
+
+**Documentation:** [AI in Experience Cloud](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/home)
+
+### Architecture Resources
+
+| Resource | Description | Link |
+|----------|-------------|------|
+| **AEM Cloud Service Architecture** | Core AEM architecture overview | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/overview/architecture) |
+| **EDS Architecture** | Edge Delivery Services deep dive | [Docs](https://www.aem.live/docs/architecture) |
+| **Adobe Developers Live 2025** | AEM Agents session recording | [Video](https://experienceleague.adobe.com/en/docs/events/adobe-developers-live-recordings/2025/aem-agents) |
+| **Experience Cloud Blueprints** | Reference architecture diagrams | [Docs](https://experienceleague.adobe.com/en/docs/blueprints-learn/architecture/architecture-overview/experience-cloud) |
 
 ---
 
@@ -142,21 +249,9 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 | Extension | Description | Marketplace |
 |-----------|-------------|-------------|
-| **AEM Sync** | Sync file changes to AEM automatically | [Link](https://marketplace.visualstudio.com/items?itemName=Yinkai15.aemsync) |
-| **VSCode AEM Sync** | Sync files, folders, nodes to AEM | [Link](https://marketplace.visualstudio.com/items?itemName=yamato-ltd.vscode-aem-sync) |
-| **AEM Dev Pack** | Extension pack for AEM/Java development | [Link](https://marketplace.visualstudio.com/items?itemName=mansquatch.ici-aem-dev-pack) |
-| **AEM Component Builder** | Creates base component structure for TouchUI and Sightly | [Link](https://marketplace.visualstudio.com/items?itemName=mansquatch.aem-component-builder) |
-| **AEM Explorer** | Integrates AEM to VS Code for development | [Link](https://marketplace.visualstudio.com/items?itemName=misonou.aemexplorer) |
-| **AEM Copilot** | GitHub Copilot for AEM Edge Delivery Services | [Link](https://marketplace.visualstudio.com/items?itemName=neerajgrg93.aem-copilot) |
-| **AEM PowerSync** | Sync files and folders with local AEM instance | [Link](https://marketplace.visualstudio.com/items?itemName=robertbrestle.aempowersync) |
+| **AEM AI Assistant** | AI-powered AEM development help | [Link](#) |
 
-### IntelliJ Plugins
 
-| Plugin | Description | Marketplace |
-|--------|-------------|-------------|
-| **AEM Support** | Comprehensive AEM development tools | [Link](https://plugins.jetbrains.com/plugin/9863-aem-ide) |
-
----
 
 ## AI Features by AEM Product
 
@@ -290,15 +385,14 @@ upskill adobe/helix-website --all
 | [aem-clientlib-generator](https://www.npmjs.com/package/aem-clientlib-generator) | Creates AEM ClientLibs config files | `npm i aem-clientlib-generator` |
 | [aem-import-builder](https://www.npmjs.com/package/aem-import-builder) | AI capabilities for AEM import scripts | `npm i aem-import-builder` |
 
-### CLI Commands
+### CLI Tools
 
 ```bash
-# AEM CLI - local development server
-aem up
-
-# AEM Project Archetype
-mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=aem-project-archetype
+# AEM CLI with AI capabilities
+npm install -g @adobe/aem-cli
 ```
+
+### AI-Enhanced Development
 
 ---
 
@@ -315,7 +409,7 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 
 ### Certifications
 
-- [Adobe Certification Program](https://certification.adobe.com/) - AEM Sites and Assets certifications
+
 
 ---
 
