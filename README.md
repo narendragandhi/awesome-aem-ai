@@ -238,8 +238,8 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 ### Documentation
 
-- [Claude Code Skills Docs](https://code.claude.com/docs/en/skills)
-- [Agent Skills Spec](https://github.com/anthropics/skills)
+- [Claude Code Skills Docs](https://code.claude.com/docs/en/skills) - Official skill creation guide
+- [Agent Skills Repository](https://github.com/anthropics/skills) - 64k+ stars, example skills and specification
 
 ---
 
@@ -249,9 +249,18 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 | Extension | Description | Marketplace |
 |-----------|-------------|-------------|
-| **AEM AI Assistant** | AI-powered AEM development help | [Link](#) |
+| **AEM Sync** | Sync file changes to AEM automatically | [Link](https://marketplace.visualstudio.com/items?itemName=Yinkai15.aemsync) |
+| **VSCode AEM Sync** | Sync files, folders, nodes to AEM | [Link](https://marketplace.visualstudio.com/items?itemName=yamato-ltd.vscode-aem-sync) |
+| **AEM Copilot** | GitHub Copilot for AEM Edge Delivery Services | [Link](https://marketplace.visualstudio.com/items?itemName=neerajgrg93.aem-copilot) |
+| **AEM Explorer** | Integrates AEM to VS Code for development | [Link](https://marketplace.visualstudio.com/items?itemName=misonou.aemexplorer) |
 
+### IntelliJ Plugins
 
+| Plugin | Description | Marketplace |
+|--------|-------------|-------------|
+| **AEM IDE** | Comprehensive AEM development tools | [Link](https://plugins.jetbrains.com/plugin/9863-aem-ide) |
+
+---
 
 ## AI Features by AEM Product
 
@@ -285,6 +294,17 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 |---------|-------------|---------------|
 | **AI Assistant** | Smart help and authoring features | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-guides/using/user-guide/ai-assistant-aem/ai-assistant) |
 | **Smart Suggestions** | AI-powered content reuse recommendations | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-guides/using/user-guide/ai-assistant-aem/authoring-ai-based-smart-suggestions) |
+
+### AEM Screens
+
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Data-Driven Personalization** | Rules-based personalization for digital signage based on location, time, audience data | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/user-guide/aem-screens-introduction) |
+| **Smart Image Cropping** | AI-powered focal point detection for screen dimensions (inherited from Assets) | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/using/authoring/setting-up-acls) |
+| **Adobe Analytics Integration** | Understanding signage performance with analytics | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/using/administering/configuring-adobe-analytics-aem-screens) |
+| **Adobe Target A/B Testing** | AI-assisted testing for digital signage content | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/using/administering/configuring-adobe-analytics-aem-screens) |
+
+> **Note:** AEM Screens inherits AI capabilities from AEM Sites and Assets (Smart Tags, Smart Crop, etc.) for content that is published to digital signage displays.
 
 ### Migration & Modernization
 
@@ -353,8 +373,6 @@ upskill adobe/helix-website --all
 
 ---
 
----
-
 ## Development Tools
 
 ### npm Packages
@@ -385,14 +403,15 @@ upskill adobe/helix-website --all
 | [aem-clientlib-generator](https://www.npmjs.com/package/aem-clientlib-generator) | Creates AEM ClientLibs config files | `npm i aem-clientlib-generator` |
 | [aem-import-builder](https://www.npmjs.com/package/aem-import-builder) | AI capabilities for AEM import scripts | `npm i aem-import-builder` |
 
-### CLI Tools
+### CLI Commands
 
 ```bash
-# AEM CLI with AI capabilities
-npm install -g @adobe/aem-cli
-```
+# AEM CLI - local development server with AI coding agents support
+aem up
 
-### AI-Enhanced Development
+# AEM Project Archetype
+mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=aem-project-archetype
+```
 
 ---
 
@@ -409,7 +428,7 @@ npm install -g @adobe/aem-cli
 
 ### Certifications
 
-
+- [Adobe Certification Program](https://certification.adobe.com/) - AEM Sites, Assets, and Developer certifications
 
 ---
 
@@ -429,8 +448,6 @@ npm install -g @adobe/aem-cli
 |------|-------------|------|
 | **AEM Groovy Console** | Script execution for AEM | [GitHub](https://github.com/orbinson/aem-groovy-console) |
 | **AEM Block Collection** | Curated EDS blocks | [GitHub](https://github.com/adobe/aem-block-collection) |
-
----
 
 ---
 
