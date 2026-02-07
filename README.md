@@ -180,15 +180,84 @@ Adobe provides official MCP servers hosted at `https://mcp.adobeaemcloud.com/ado
 
 ### Official Adobe Agents
 
-Adobe provides five official AI agents for AEM as a Cloud Service (Beta Program):
+Adobe provides six official AI agents for AEM as a Cloud Service (Beta Program). Contact `aemagentsteam@adobe.com` to opt in.
 
-| Agent | Description | Documentation |
+#### Experience Production Agent
+
+Automates high-effort, high-volume content tasks. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/overview)
+
+| Skill | Description | Documentation |
 |-------|-------------|---------------|
-| **Experience Production Agent** | Automates high-effort, high-volume tasks by converting manual processes into AI-assisted workflows | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
-| **Content Optimization Agent** | Refine assets through natural language - create renditions, adjust visual properties, change backgrounds | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
-| **Discovery Agent** | Intelligent search across Assets, Content Fragments, and Adaptive Forms | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
-| **Development Agent** | Streamlines code creation, debugging, deployment, and optimization for developers | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
-| **Governance Agent** | Safeguards brand integrity and compliance by enforcing security and brand policies | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+| **Content Update** | Update, remove, replace content in pages, fragments, forms via natural language or Jira | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/content-update) |
+| **Form Creation** | Build adaptive forms through natural language without development teams | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/overview) |
+| **Communications Creation** | Generate personalized, data-driven correspondence (statements, policies, bills) - Alpha | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/overview) |
+
+#### Experience Modernization Agent
+
+AI-powered website migration to Edge Delivery Services. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview)
+
+| Skill | Description | Documentation |
+|-------|-------------|---------------|
+| **Site Migration** | Transform websites from any CMS, legacy AEM, or Figma into EDS projects | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview) |
+| **Block Development** | Content-Driven Development methodology with Block Collection/Party | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview) |
+| **Design Extraction** | Extract colors, fonts, styles into CSS from source sites | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/getting-started) |
+
+**Console:** Available at `aemcoder.adobe.io` - no local setup required
+
+#### Content Optimization Agent
+
+Transform assets through natural language for channel-ready variations. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/content-optimization/overview)
+
+| Capability | Description |
+|------------|-------------|
+| **Dynamic Variant Generation** | Create optimized variants as dynamic URLs for different channels |
+| **Image Optimization** | Format conversion, resolution, cropping, sharpening, background changes |
+| **Multi-Variant Production** | Generate multiple renditions from single prompts (Instagram, web banners, etc.) |
+
+#### Discovery Agent
+
+Natural language content discovery across AEM. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/discovery/overview)
+
+| Capability | Description |
+|------------|-------------|
+| **Semantic Search** | Find assets, fragments, forms using conversational prompts |
+| **Tag & Folder Discovery** | Locate content by taxonomy or folder structure |
+| **Advanced Filtering** | Format, orientation, dimensions, metadata, creation dates |
+
+#### Development Agent
+
+Pipeline troubleshooting for AEM Cloud Service. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/development/overview)
+
+| Capability | Description |
+|------------|-------------|
+| **Pipeline Status** | Retrieve build status for dev, stage, production |
+| **Build Troubleshooting** | Analyze logs and suggest fixes for failing build steps |
+| **Code Analysis** | Examine related code to recommend solutions |
+
+**Access:** Requires Cloud Manager Developer or Program Manager role
+
+#### Governance Agent
+
+Brand integrity and compliance enforcement. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/governance/overview)
+
+| Capability | Description |
+|------------|-------------|
+| **Compliance Monitoring** | Detect policy violations in real-time |
+| **Metadata Enforcement** | Ensure assets have required metadata |
+| **Brand Validation** | Check content against tone, claims, logo, typography, imagery rules |
+
+**Integration:** Works with ChatGPT, Claude, and other AI systems via A2A and MCP protocols
+
+---
+
+### Agent Resources
+
+| Resource | Description | Link |
+|----------|-------------|------|
+| **Agents Overview** | Complete agents documentation | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) |
+| **AI in AEM Overview** | All AI capabilities in AEM | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) |
+| **Developers Live 2025** | AEM Agents session recording | [Video](https://experienceleague.adobe.com/en/docs/events/adobe-developers-live-recordings/2025/aem-agents) |
+| **Beta Program** | Email to opt in | `aemagentsteam@adobe.com` |
 
 **Availability:** AEM as a Cloud Service and Edge Delivery Services only (Beta Program required)
 
