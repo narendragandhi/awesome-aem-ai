@@ -192,6 +192,13 @@ Automates high-effort, high-volume content tasks. [Overview](https://experiencel
 | **Form Creation** | Build adaptive forms through natural language without development teams | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/overview) |
 | **Communications Creation** | Generate personalized, data-driven correspondence (statements, policies, bills) - Alpha | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/overview) |
 
+**Content Update Skill Technical Details:**
+- **Content Types:** Pages, Content Fragments, Adaptive Forms, Assets
+- **Operations:** Update, remove, replace, add content elements
+- **Input Methods:** Natural language prompts or Jira ticket integration
+- **Execution:** Automates high-effort, high-volume content tasks
+- **Integration:** Direct AEM author instance connectivity
+
 #### Experience Modernization Agent
 
 AI-powered website migration to Edge Delivery Services. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview)
@@ -221,8 +228,17 @@ Natural language content discovery across AEM. [Overview](https://experienceleag
 | Capability | Description |
 |------------|-------------|
 | **Semantic Search** | Find assets, fragments, forms using conversational prompts |
+| **Multi-Content Discovery** | Searches across Assets (images, videos, PDFs), Content Fragments, and Adaptive Forms simultaneously |
 | **Tag & Folder Discovery** | Locate content by taxonomy or folder structure |
 | **Advanced Filtering** | Format, orientation, dimensions, metadata, creation dates |
+| **Conversational Prompts** | Natural language queries without building complex search syntax |
+| **Click-Free Discovery** | Streamlined, click-free experience for content retrieval |
+
+**Supported Content Types:**
+- Images, videos, PDF documents
+- Content Fragments (structured content)
+- Adaptive Forms and form templates
+- Articles and marketing collateral
 
 #### Development Agent
 
@@ -494,6 +510,23 @@ mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=ae
 | **Generative AI in AEM Sites** | Video tutorial on GenAI features | [Video](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/expert-resources/cloud-5/season-3/cloud5-generative-ai-for-aem-sites) |
 | **EDS Developer Tutorial** | Get started with Edge Delivery Services | [Tutorial](https://www.aem.live/developer/tutorial) |
 | **Experience Modernization** | Getting started with migration agent | [Guide](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/getting-started) |
+
+### Hands-on Labs
+
+Step-by-step tutorials for practical AI implementation in AEM.
+
+| Lab | Topic | Duration | Description |
+|-----|-------|----------|-------------|
+| **Lab 1** | [AEM MCP Server](tutorials/lab-1-aem-mcp-server.md) | 20-30 min | Set up and configure AEM MCP Server for natural language AEM interaction |
+| **Lab 2** | [Experience Production Agent](tutorials/lab-2-experience-production-agent.md) | 25-35 min | Automate content operations using AI agents |
+| **Lab 3** | [Claude Code Skills](tutorials/lab-3-claude-code-skills.md) | 30-40 min | Enhance AEM/EDS development with AI skills |
+| **Lab 4** | [ACM MCP Server](tutorials/lab-4-acm-mcp-server.md) | 30-40 min | Set up ACM MCP for Groovy script execution via AI |
+
+**Quick Start:**
+```bash
+git clone https://github.com/narendragandhi/awesome-aem-ai.git
+cd awesome-aem-ai/tutorials
+```
 
 ### Certifications
 
