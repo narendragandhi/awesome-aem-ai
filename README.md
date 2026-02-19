@@ -27,12 +27,16 @@
 - [Adobe Sensei](https://www.adobe.com/sensei.html) - Adobe's AI and machine learning framework
 - [Using MCP with AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/using-mcp-with-aem-as-a-cloud-service) - Official MCP integration guide
 - [AEM Agents Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) - Official AI agents documentation
+- [AI in AEM Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) - All AI capabilities in AEM
 
 ### Adobe AI Products
 - [Adobe Firefly](https://www.adobe.com/products/firefly.html) - Generative AI for creative workflows
 - [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain
 - [Content Hub](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/content-hub/product-overview.html) - AI-enhanced asset management
 - [AI Assistant in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem-admin) - Integrated AI assistant for product knowledge and support
+
+### Announcements
+- [Adobe AI Agents GA (September 2025)](https://news.adobe.com/news/downloads/pdfs/2025/09/091025-general-availability-of-ai-agents.pdf) - General availability of AI agents for customer experience orchestration
 
 ---
 
@@ -167,8 +171,10 @@ Adobe provides official MCP servers hosted at `https://mcp.adobeaemcloud.com/ado
 
 | Name | Description | Links |
 |------|-------------|-------|
-| **aem-mcp-server** | Full-featured MCP server for AEM - chat with your AEM instance via natural language | [npm](https://www.npmjs.com/package/aem-mcp-server) / [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
-| **aem-sites-mcp** | Sites-specific MCP server for page operations | [GitHub](https://github.com/pradeep-moolemane/aem-mcp) |
+| **aem-mcp-server** | Full-featured MCP server for AEM - 35+ methods for content, components, assets | [npm](https://www.npmjs.com/package/aem-mcp-server) / [GitHub](https://github.com/indrasishbanerjee/aem-mcp-server) |
+| **aem-eds-mcp-server** | MCP server for AEM Edge Delivery Services - 10 tools for content management, config, jobs, search | [npm](https://www.npmjs.com/package/@neerajgrg93/aem-eds-mcp-server) |
+| **aem-sites-mcp** | Sites-specific MCP server for local AEM instance management | [GitHub](https://github.com/pradeep-moolemane/aem-mcp) |
+| **acm-mcp-server** | MCP server for AEM Content Manager (ACM) - execute Groovy scripts via AI | [GitHub](https://github.com/narendragandhi/acm/tree/main/mcp.server) |
 
 ### Edge Delivery Services
 
@@ -555,6 +561,28 @@ cd awesome-aem-ai/tutorials
 
 ## Videos & Presentations
 
+### Adobe Developers Live
+
+| Video | Description | Link |
+|-------|-------------|------|
+| **Building the Agentic Web** | AEM Agents, Content AI Foundational - ADL 2025 Keynote | [YouTube](https://www.youtube.com/watch?v=wIJKwPBbuPk) |
+| **Bringing Intelligence to Content in AEM** | Content AI in AEM - ADL 2025 | [YouTube](https://www.youtube.com/watch?v=aGw1eCnHC7g) |
+| **Accelerate your Edge Delivery Tutorial** | EDS Tutorial with AEM trial | [YouTube](https://www.youtube.com/watch?v=RlXJ3zZgpgk) |
+| **AEM Release 2025.01** | New AI features in AEM 2025.01 | [YouTube](https://www.youtube.com/watch?v=IFrwcUGMFQI) |
+| **AEM Release 2025.02** | Content Fragment Auto Tagging, EDS features | [YouTube](https://www.youtube.com/watch?v=kX5dWW5kJ_0) |
+
+### AI & MCP Tutorials
+
+| Video | Description | Link |
+|-------|-------------|------|
+| **Unlocking AEM's Potential with AI** | AI integration in AEM - Agentic, GenAI, AI Assistant | [YouTube](https://www.youtube.com/watch?v=2J5doCFH4TQ) |
+| **AI Assistant in AEM** | Configuration and live demo | [YouTube](https://experienceleague.adobe.com/en/docs/events/adobe-customer-success-webinar-recordings/2025/aem2025/ai-assistant-in-aem) |
+| **AEM + MCP Integration** | MCP for content, components, assets management | [Playbooks](https://playbooks.com/mcp/easingthemes/aem-mcp-server) |
+
+### AEM Rocks Episodes
+
+- [AEM Rocks YouTube](https://www.youtube.com/@aemrocks) - Popular AEM tutorial channel
+
 ### Adobe Summit Sessions
 
 - [AI-Powered Content Supply Chain](https://summit.adobe.com/) - Summit 2024
@@ -565,6 +593,7 @@ cd awesome-aem-ai/tutorials
 - [Adobe Experience League](https://www.youtube.com/@AdobeExperienceLeague)
 - [AEM Rocks](https://www.youtube.com/@aemrocks)
 - [AEM Geeks](https://www.youtube.com/@aemgeeks)
+- [aem-live](https://www.youtube.com/@aem-live) - Official Adobe AEM channel
 
 ### Webinars
 
