@@ -12,6 +12,7 @@
 - [Claude Code Skills](#claude-code-skills)
 - [IDE Extensions & Plugins](#ide-extensions--plugins)
 - [AI Features by AEM Product](#ai-features-by-aem-product)
+- [Adobe LLM Optimizer](#adobe-llm-optimizer)
 - [Edge Delivery Services AI](#edge-delivery-services-ai)
 - [Development Tools](#development-tools)
 - [Tutorials & Learning](#tutorials--learning)
@@ -30,10 +31,13 @@
 - [AI in AEM Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) - All AI capabilities in AEM
 
 ### Adobe AI Products
-- [Adobe Firefly](https://www.adobe.com/products/firefly.html) - Generative AI for creative workflows
-- [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain
+- [Adobe Sensei](https://www.adobe.com/sensei.html) - Adobe's AI and machine learning framework
+- [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain for performance marketing
+- [Adobe LLM Optimizer](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/home) - Generative Engine Optimization (GEO) for AI search visibility
 - [Content Hub](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/content-hub/product-overview.html) - AI-enhanced asset management
 - [AI Assistant in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem-admin) - Integrated AI assistant for product knowledge and support
+
+**See also:** [Dedicated LLM Optimizer Section](#adobe-llm-optimizer) for complete documentation, tutorials, and guides.
 
 ### Announcements
 - [Adobe AI Agents GA (September 2025)](https://news.adobe.com/news/downloads/pdfs/2025/09/091025-general-availability-of-ai-agents.pdf) - General availability of AI agents for customer experience orchestration
@@ -355,6 +359,15 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 ## AI Features by AEM Product
 
+### Adobe GenStudio
+
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Performance Marketing** | AI-powered content supply chain for creating, manage, and measure marketing content | [Docs](https://business.adobe.com/products/genstudio.html) |
+| **Content Generation** | Generate on-brand content variations across channels | [Docs](https://business.adobe.com/products/genstudio.html) |
+| **Brand Compliance** | Ensure content meets brand guidelines using AI | [Docs](https://business.adobe.com/products/genstudio.html) |
+| **Multi-Channel Delivery** | Optimize and deliver content to web, social, email, and ads | [Docs](https://business.adobe.com/products/genstudio.html) |
+
 ### AEM Sites
 
 | Feature | Description | Documentation |
@@ -404,6 +417,57 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 | **Experience Modernization Agent** | AI-assisted migration to Edge Delivery Services | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/modernization/overview) |
 | **Site Migration Skill** | Automated content and style migration | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/production/site-migration) |
 | **AEM Modernization Tools** | Convert legacy AEM to modern patterns | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/migration/moving-to-aem-as-a-cloud-service/aem-modernization-tools) |
+
+---
+
+## Adobe LLM Optimizer
+
+Generative Engine Optimization (GEO) for AI search visibility in ChatGPT, Perplexity, Copilot, Gemini, and other LLM-driven assistants.
+
+### Overview
+
+Adobe LLM Optimizer is a generative AI-first application designed to help brands enhance their visibility, accuracy, and influence in AI-driven search environments. It provides insights into brand presence in AI-generated answers, offers prescriptive content recommendations, and automates optimization fixes.
+
+### Key Features
+
+| Feature | Description | Documentation |
+|---------|-------------|---------------|
+| **Brand Presence Dashboard** | Command center for brand mentions, citations, and sentiment in AI responses | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/overview) |
+| **Optimization Opportunities** | Auto-detected insights for site and content improvements | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/dashboards/opportunities) |
+| **Customer Configuration** | Configure categories, topics, prompts, brand aliases | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/dashboards/customer-configuration) |
+| **Optimize at Edge** | CDN-layer optimizations without CMS authoring changes (Early Access) | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/resources/optimize-at-edge) |
+
+### Tutorials & Guides
+
+| Resource | Description | Link |
+|----------|-------------|------|
+| **Quick Start** | Onboarding and initial setup guide | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/quick-start) |
+| **LLM Optimizer Overview** | Complete platform overview and walkthrough | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/overview) |
+| **Best Practices** | Strategic planning, onsite/offsite optimization, agentic traffic | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/best-practices) |
+| **Interactive Tour** | Hands-on tour of Adobe LLM Optimizer | [Demo](https://business.adobe.com/resources/llm-optimizer-interactive-tour/thank-you.html) |
+| **Why We Created LLM Optimizer** | Product vision and use cases | [Blog](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/why-we-created-llm-optimizer/m-p/781361) |
+
+### Integration
+
+- **AEM Cloud Service** - Native integration with AEM as a Cloud Service
+- **Edge Delivery Services** - Optimize EDS sites for LLM visibility
+- **CDN Configuration** - Configure CDN for AI agent traffic targeting
+
+**Use Cases:**
+- Improve brand citations in AI-generated answers
+- Optimize content structure for LLM readability
+- Track performance across ChatGPT, Google AI Overviews, Copilot, Gemini, Perplexity
+- Automated optimization fixes via CDN edge deployments
+
+### Getting Started
+
+1. Complete domain onboarding
+2. Configure categories, topics, and prompts
+3. Set up CDN log forwarding
+4. Monitor brand presence dashboard
+5. Apply optimization recommendations
+
+[Official Documentation](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/home)
 
 ---
 
