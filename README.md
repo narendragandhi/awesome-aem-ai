@@ -15,6 +15,7 @@
 - [Adobe LLM Optimizer](#adobe-llm-optimizer)
 - [Edge Delivery Services AI](#edge-delivery-services-ai)
 - [Development Tools](#development-tools)
+- [Best Practices & AI Workflow](#best-practices--ai-workflow)
 - [Tutorials & Learning](#tutorials--learning)
 - [Community Projects](#community-projects)
 - [Videos & Presentations](#videos--presentations)
@@ -26,6 +27,7 @@
 
 ### Adobe Documentation
 - [Adobe Sensei](https://www.adobe.com/sensei.html) - Adobe's AI and machine learning framework
+- [Local Development with AI Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/local-development-with-ai-tools) - Official guide for local AI-enhanced development
 - [Using MCP with AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/using-mcp-with-aem-as-a-cloud-service) - Official MCP integration guide
 - [AEM Agents Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/overview) - Official AI agents documentation
 - [AI in AEM Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) - All AI capabilities in AEM
@@ -139,6 +141,17 @@ The [Experience Modernization Agent](https://experienceleague.adobe.com/en/docs/
 
 **Documentation:** [AI in Experience Cloud](https://experienceleague.adobe.com/en/docs/experience-cloud-ai/experience-cloud-ai/home)
 
+### Core AI Services & Trust
+
+Foundational AI technologies and ethics powering the AEM ecosystem.
+
+| Service | Role | Key Feature |
+|---------|------|-------------|
+| **Adobe Firefly** | Generative Engine | Commercially safe image generation and creative editing. |
+| **Adobe Sensei GenAI** | Experience Intelligence | Powers copy variations, content discovery, and intelligent automation. |
+| **Responsible AI** | Ethical Framework | Framework focusing on accountability, responsibility, and transparency. |
+| **Experience Cloud Performance** | Contextual Intelligence | Real-time performance insights to tailor AI outputs to customer personas. |
+
 ### Architecture Resources
 
 | Resource | Description | Link |
@@ -170,6 +183,17 @@ Adobe provides official MCP servers hosted at `https://mcp.adobeaemcloud.com/ado
 - Supports Claude, Cursor, ChatGPT, and Microsoft Copilot Studio
 
 [Official Documentation](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/using-mcp-with-aem-as-a-cloud-service)
+
+### Local Runtime MCP Servers
+
+Model Context Protocol (MCP) servers that connect AI tools to local running environments (AEM SDK and Dispatcher).
+
+| Server | Components | Description |
+|--------|------------|-------------|
+| **AEM Quickstart MCP Server** | `aem-logs`, `diagnose-osgi-bundle`, `recent-requests` | Full inspection of local OSGi, logs, and HTTP request traces |
+| **Dispatcher MCP Server** | `validate`, `lint`, `trace_request`, `inspect_cache` | Static and best-practice checks, request tracing, cache analysis |
+
+[Official Documentation](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/local-development-with-ai-tools)
 
 ### Community MCP Servers
 
@@ -290,6 +314,25 @@ Brand integrity and compliance enforcement. [Overview](https://experienceleague.
 ---
 
 ## Claude Code Skills
+
+### Official Adobe AEM Cloud Service Skills
+
+Install official AEM Cloud Service skills from [adobe/skills#beta](https://github.com/adobe/skills/tree/beta/skills/aem/cloud-service):
+
+```bash
+# Install via gh-upskill
+gh upskill adobe/skills --branch beta --path skills/aem/cloud-service --all
+
+# Install via npx
+npx skills add https://github.com/adobe/skills/tree/beta/skills/aem/cloud-service --all
+```
+
+| Skill | Description |
+|-------|-------------|
+| **`ensure-agents-md`** | Bootstraps `AGENTS.md` by detecting modules from `pom.xml` |
+| **`create-component`** | Scaffolds dialogs, HTL, Sling Models, tests, and clientlibs |
+| **`dispatcher`** | Assistant for Apache/Dispatcher security, performance, and tuning |
+| **`workflow`** | Designs models, develops process steps, and diagnoses failures |
 
 ### Official Adobe EDS Skills
 
@@ -530,6 +573,15 @@ upskill adobe/helix-website --all
 
 ## Development Tools
 
+### AI Grounding & Configuration
+
+Essential files for grounding AI agents (Claude, Cursor, Copilot) in AEM Cloud Service project context.
+
+| File | Purpose | Description |
+|------|---------|-------------|
+| **`AGENTS.md`** | AI Grounding | Markdown file at project root providing AEM/OSGi context to AI agents. Prevents hallucinations of legacy patterns. |
+| **`.aem-skills-config.yaml`** | Metadata Storage | Config file for project-specific metadata (Java package, group ID) to ensure AI-generated code follows local conventions. |
+
 ### npm Packages
 
 #### Official Adobe Packages
@@ -567,6 +619,68 @@ aem up
 # AEM Project Archetype
 mvn archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=aem-project-archetype
 ```
+
+---
+
+## Real-World Architecture Audit (Non-Fluff Demo)
+
+To demonstrate the difference between "GenAI chat" and "Architectural Intelligence," we performed a live audit of the **AEM WKND Reference Site** Dispatcher configurations using the principles defined in this guide.
+
+### The Objective
+Identify security vulnerabilities in the Dispatcher filter rules that a standard chatbot would miss, but a grounded AEM agent can detect.
+
+### Step 1: Automated Analysis
+We ran the `aemanalyser-maven-plugin` (integrated via the `dispatcher` skill) against the `wknd-test` project.
+
+```bash
+# Executing the audit
+mvn com.adobe.aem:aemanalyser-maven-plugin:analyse -pl dispatcher -am
+```
+
+### Step 2: Findings (Critical Vulnerability Detected)
+The audit identified a high-risk misconfiguration in `dispatcher/src/conf.dispatcher.d/filters/filters.any`:
+
+**Vulnerable Code:**
+```any
+# Rule /0201 in filters.any
+/0201 { /type "allow" /url "/home/users/*.infinity.json" }
+```
+
+**Architectural Impact:**
+*   **Vulnerability**: This rule allows external access to user profile nodes via the `.infinity.json` selector. 
+*   **Risk**: An attacker can crawl `/home/users` to dump sensitive user metadata, preferences, and potentially hashed credentials or PII (Personally Identifiable Information).
+*   **Compliance**: This violates the **AEM Cloud Service Security Checklist** which mandates that `/home` should never be exposed via Dispatcher.
+
+### Step 3: Proactive Fix
+A "really good" AI doesn't just report this; it provides the surgical fix:
+
+```any
+# Recommended Fix: Restrict access to specific, non-sensitive pagedata only
+/0201 { /type "deny" /url "/home/users/*" }
+/0202 { /type "allow" /url "/home/users/*.token.json" } # If specific token exchange is needed
+```
+
+---
+
+## Best Practices & AI Workflow
+
+Guidelines for successfully integrating AI into your AEM development lifecycle.
+
+### Core Principles
+
+1.  **Ground the Agent First**: Always ensure `AGENTS.md` is present at the root of your project. This ensures AI agents (Claude, Cursor, Copilot) understand they are working on an AEM Cloud Service Java/OSGi project and prevents legacy code hallucinations.
+2.  **Use Specialized Skills Over General Chat**: Prefer specialized instruction sets like `create-component` or `dispatcher` over general prompts. These skills encode multi-step Adobe best practices and mandatory file structures (dialogs, Sling Models, tests).
+3.  **Connect to the Runtime**: Use MCP servers (AEM Quickstart and Dispatcher) to give your AI "eyes" into the running environment. This allows it to debug OSGi failures and request traces in real-time.
+4.  **Iterative Component Creation**: When creating components, provide a detailed dialog specification (field names, types, labels) to the `create-component` skill for a high-fidelity first draft.
+5.  **Verify Locally Before Deployment**: Use the `dispatcher` skill and MCP server to validate configurations against your local Docker container before committing to Cloud Manager.
+
+### Standard AI-Enhanced Workflow
+
+1.  **Bootstrap**: Run `ensure-agents-md` to initialize project context.
+2.  **Develop**: Use `create-component` to scaffold backend and frontend code.
+3.  **Debug**: Use `aem-logs` and `diagnose-osgi-bundle` via MCP to fix runtime issues.
+4.  **Harden**: Use `dispatcher` skill to audit security and performance.
+5.  **Refine**: Use `Generate Variations` in the AEM Editor to polish copy and images.
 
 ---
 
