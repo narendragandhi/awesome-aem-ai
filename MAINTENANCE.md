@@ -65,39 +65,9 @@ The list passes [awesome-lint](https://github.com/sindresorhus/awesome-lint) as 
 - When adding someone's tool, open an issue on THEIR repo saying they've been featured, with a link here. Authors star and share — this is the main growth loop.
 - Review submissions against the quality checklist in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Promotion Playbook
+## Promotion
 
-Post after each meaningful update, tied to a timely hook (release, Summit, agent GA). Once per channel per update — no spam.
-
-### LinkedIn template
-
-> The AEM AI landscape changed a lot in the last few months and it's scattered across Experience League, aem.live, dev blogs, and press releases. I maintain a curated map of all of it — just refreshed for [MONTH YEAR]:
->
-> ✅ [Headline change 1]
-> ✅ [Headline change 2]
-> ✅ [Headline change 3]
->
-> Plus things you won't find in official docs: 4 hands-on labs, ready-to-use Claude Code skills for AEM backend dev, and a community MCP server directory.
->
-> ⭐ https://github.com/narendragandhi/awesome-aem-ai — PRs welcome, especially if you've built an AEM MCP server or skill.
->
-> #AEM #AdobeExperienceManager #AI #MCP #EdgeDeliveryServices
-
-### Discord / Slack template (aem.live Discord, AEM community Slack)
-
-> I maintain an awesome-list for AEM + AI (MCP servers, agents, skills, labs) and just updated it for [HOOK — e.g., "the post-Summit landscape"] — [2-3 headline changes]. If you've built an EDS MCP server or skill, open an issue/PR and I'll add it: https://github.com/narendragandhi/awesome-aem-ai
-
-### Tool author outreach template (issue on their repo)
-
-> Hi — I maintain [awesome-aem-ai](https://github.com/narendragandhi/awesome-aem-ai), a curated list of AI tooling for AEM/EDS, and I've featured [TOOL] in the [SECTION] section. If anything in the description is off, tell me or PR a fix. If you find the list useful, a star helps other AEM folks find these tools.
-
-### Where the AEM community lives
-
-- LinkedIn (most active for AEM professionals)
-- aem.live Discord and community Slack channels
-- [Experience League Communities](https://experienceleaguecommunities.adobe.com/)
-- adaptTo() conference circles (September, Berlin)
-- AEM Rocks / AEM Geeks YouTube audiences
+Announcement post templates and channel notes live in the local, untracked `PROMOTION.md` (git-ignored). Post after each meaningful update, tied to a timely hook — once per channel per update.
 
 ## sindresorhus/awesome Submission (pending)
 
