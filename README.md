@@ -1,7 +1,25 @@
-# Awesome AEM AI [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome AEM AI [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Last Commit](https://img.shields.io/github/last-commit/narendragandhi/awesome-aem-ai?label=updated)](https://github.com/narendragandhi/awesome-aem-ai/commits/main) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 > A curated list of AI resources, tools, MCP servers, agents, and skills for Adobe Experience Manager (AEM) and Edge Delivery Services (EDS).
 
+The AEM AI landscape moves fast — agents, MCP servers, and skills ship monthly across Experience League, aem.live, developer blogs, and press releases. This list is the single map, refreshed as things change.
+
+## ⭐ Start Here
+
+Things this list has that you won't find in the official docs:
+
+- **[Hands-on Labs](#hands-on-labs)** - Four step-by-step labs: AEM MCP Server, Experience Production Agent, Claude Code Skills, and ACM MCP Server (20-40 min each)
+- **[Ready-to-use Claude Code Skills](#aem-core-skills-this-repository)** - Six AEM backend skills (HTL, Sling Models, OSGi, clientlibs, testing, EDS blocks) you can copy into your project today
+- **[Community MCP Servers](#community-mcp-servers)** - The tools Adobe doesn't list: community servers for Sites, EDS, and Groovy script execution
+- **[Real-World Architecture Audit](#real-world-architecture-audit-non-fluff-demo)** - A live Dispatcher security audit showing what grounded AI catches that chatbots miss
+
+## What's New (July 2026)
+
+- Adobe's agents restructured into **Brand Experience Agent** (Modernization + Production + Development), **Content Advisor Agent**, and **Governance Agent** - now GA via Agentic SKU
+- Official MCP servers grew from 2 to **5**: added Cloud Manager, Experience Governance, and Cloud Migration
+- Summit 2026: **Brand Visibility solution**, **LLM Apps**, and **Brand Concierge**
+- [adobe/skills](https://github.com/adobe/skills) graduated from beta - now installable as a Claude Code plugin
+- New in AEM 2026.6.0: Visual Content Fragments, AI Translation, AI Search, Brand Aware Metadata
 
 ## Contents
 

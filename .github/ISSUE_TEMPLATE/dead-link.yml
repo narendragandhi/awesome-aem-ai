@@ -1,0 +1,22 @@
+name: "Report a Dead or Outdated Link"
+description: "A link is broken, redirects wrong, or the resource is stale"
+title: "[Dead Link] "
+labels: ["dead-link"]
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Section and resource name
+      placeholder: "MCP Servers > aem-sites-mcp"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Broken URL
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Suggested replacement (optional)

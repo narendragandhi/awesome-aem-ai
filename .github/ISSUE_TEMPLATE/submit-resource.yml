@@ -1,0 +1,57 @@
+name: "Submit a Resource"
+description: "Suggest an MCP server, agent, skill, tool, or tutorial for the list"
+title: "[Resource] "
+labels: ["resource-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Built an AEM + AI tool yourself? Self-submissions are welcome — that's how this list grows.
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: "e.g. aem-mcp-server"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      placeholder: "https://github.com/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - MCP Server
+        - AI Agent
+        - Claude Code Skill
+        - IDE Extension / Plugin
+        - Development Tool
+        - Tutorial / Learning
+        - Video / Presentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: One-line description
+      description: "Under 100 characters, no marketing language (see CONTRIBUTING.md)"
+      placeholder: "Provides 10 tools for EDS content management via the Helix Admin API"
+    validations:
+      required: true
+  - type: checkboxes
+    id: quality
+    attributes:
+      label: Quality checklist
+      options:
+        - label: Actively maintained (updated within the last 12 months)
+          required: true
+        - label: Has documentation and works as described
+          required: true
+        - label: Not a duplicate of an existing entry
+          required: true
