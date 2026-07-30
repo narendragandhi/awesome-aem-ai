@@ -39,10 +39,10 @@ Things this list has that you won't find in the official docs:
 ## What's New (July 2026)
 
 - Adobe's agents restructured into the Brand Experience Agent (Modernization, Production, Development), Content Advisor Agent, and Governance Agent - now GA via the Agentic SKU.
-- Official MCP servers grew from 2 to 5, adding Cloud Manager, Experience Governance, and Cloud Migration.
+- Official MCP servers grew from 2 to 5 (Content, Content Read-Only, Cloud Manager, Experience Governance, Cloud Migration) - then consolidated behind one recommended endpoint, the unified AEM MCP Server, plus an official AEM Claude Connector and AEM ChatGPT Plugin.
 - Summit 2026 introduced the Brand Visibility solution, LLM Apps, and Brand Concierge.
 - The `adobe/skills` repository graduated from beta and is now installable as a Claude Code plugin.
-- AEM [2026.6.0](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/release-notes-current) shipped Visual Content Fragments, AI Translation, AI Search, and Brand Aware Metadata.
+- AEM 2026.6.0 shipped Visual Content Fragments, AI Translation, AI Search, and Brand Aware Metadata; [2026.7.0](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/release-notes-current) (July 30) added the unified MCP Server, an Assets Onboarding Agent, Replication AI Troubleshooting, and Content Hub renditions - all currently in beta.
 
 ---
 
@@ -195,9 +195,19 @@ Foundational AI technologies and ethics powering the AEM ecosystem.
 
 Model Context Protocol (MCP) servers that integrate with AEM and EDS.
 
-### Official Adobe MCP Servers
+### AEM MCP Server (Unified, Recommended)
 
-Adobe provides official MCP servers hosted at `https://mcp.adobeaemcloud.com/adobe/mcp/`:
+As of the 2026.7.0 release, Adobe recommends a single endpoint over configuring the domain-specific servers individually:
+
+| Server             | Endpoint                                      | Description                                                                                                                                                                                              |
+| ------------------ | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AEM MCP Server** | `https://mcp.adobeaemcloud.com/adobe/mcp/aem` | Content CRUD (pages, fragments, assets) plus Experience Governance checks in one endpoint. Does not yet cover Cloud Manager or Cloud Migration - add those domain-specific servers separately if needed. |
+
+This same endpoint backs the [AEM Claude Connector](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/chat-applications/setup-claude) (install from Claude's connector directory on claude.ai) and the [AEM ChatGPT Plugin](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/chat-applications/setup-chatgpt) (one-click install from OpenAI's plugin marketplace).
+
+### Official Adobe MCP Servers (Domain-Specific)
+
+Still available, and still needed for Cloud Manager and Cloud Migration coverage. Hosted at `https://mcp.adobeaemcloud.com/adobe/mcp/`:
 
 | Server                    | Endpoint                 | Description                                                      |
 | ------------------------- | ------------------------ | ---------------------------------------------------------------- |
@@ -445,24 +455,27 @@ See the GenStudio product page linked under Official Resources above.
 
 ### AEM Sites
 
-| Feature                      | Description                                                                                                 | Documentation                                                                                                                                                   |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Visual Content Fragments** | Render structured content as formatted HTML experiences for visual preview before publication (GA 2026.6.0) | Release notes 2026.6.0                                                                                                                                          |
-| **AI Translation**           | LLM-powered content translation (Azure OpenAI as provider, more LLMs planned)                               | Release notes 2026.6.0                                                                                                                                          |
-| **Generate Variations**      | AI-powered content variations for Content Fragments and EDS                                                 | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/generate-variations/generate-variations-integrated-editor) |
-| **Generative AI Overview**   | GenAI for content creation and personalization                                                              | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/generative-ai/generative-ai-in-aem)                                  |
+| Feature                            | Description                                                                                                 | Documentation                                                                                                                                                   |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Visual Content Fragments**       | Render structured content as formatted HTML experiences for visual preview before publication (GA 2026.6.0) | Release notes 2026.6.0                                                                                                                                          |
+| **AI Translation**                 | LLM-powered content translation (Azure OpenAI as provider, more LLMs planned)                               | Release notes 2026.6.0                                                                                                                                          |
+| **Generate Variations**            | AI-powered content variations for Content Fragments and EDS                                                 | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/generate-variations/generate-variations-integrated-editor) |
+| **Generative AI Overview**         | GenAI for content creation and personalization                                                              | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/generative-ai/generative-ai-in-aem)                                  |
+| **Replication AI Troubleshooting** | AI Assistant helps diagnose blocked replication queues and other replication issues (Beta)                  | Release notes 2026.7.0                                                                                                                                          |
 
 ### AEM Assets
 
-| Feature                         | Description                                                                              | Documentation                                                                                                                             |
-| ------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **AI Search**                   | Natural language asset search ("a family at the beach") without exact metadata matches   | Release notes 2026.6.0                                                                                                                    |
-| **Brand Aware Metadata**        | AI-generated custom metadata on upload/re-process using prompt libraries (Early Adopter) | Release notes 2026.6.0                                                                                                                    |
-| **AI-Generated Video Captions** | Automatic caption generation for Dynamic Media with OpenAPI videos (GA 2026.6.0)         | Release notes 2026.6.0                                                                                                                    |
-| **Smart Tags**                  | Automatic AI tagging for images and videos                                               | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/smart-tags)                      |
-| **Smart Crop**                  | AI-powered focal point detection and cropping                                            | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/images/smart-crop-feature-video-use)      |
-| **Dynamic Media AI**            | Smart imaging and video optimization                                                     | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/dynamic-media-overview-feature-video-use) |
-| **Content Advisor Agent**       | Natural language asset discovery and refinement                                          | See AI Agents above                                                                                                                       |
+| Feature                                  | Description                                                                                                                                | Documentation                                                                                                                             |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **AI Search**                            | Natural language asset search ("a family at the beach") without exact metadata matches                                                     | Release notes 2026.6.0                                                                                                                    |
+| **Brand Aware Metadata**                 | AI-generated custom metadata on upload/re-process using prompt libraries (Early Adopter)                                                   | Release notes 2026.6.0                                                                                                                    |
+| **AI-Generated Video Captions**          | Automatic caption generation for Dynamic Media with OpenAPI videos (GA 2026.6.0)                                                           | Release notes 2026.6.0                                                                                                                    |
+| **Assets Onboarding Agent**              | AI-guided DAM setup for new orgs - conversational planning plus auto-created folder hierarchies, tag taxonomies, and metadata forms (Beta) | Release notes 2026.7.0                                                                                                                    |
+| **Generate Renditions from Content Hub** | Create channel-specific asset variants (resize, crop, compress, reformat) directly from the search bar                                     | Release notes 2026.7.0                                                                                                                    |
+| **Smart Tags**                           | Automatic AI tagging for images and videos                                                                                                 | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/smart-tags)                      |
+| **Smart Crop**                           | AI-powered focal point detection and cropping                                                                                              | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/images/smart-crop-feature-video-use)      |
+| **Dynamic Media AI**                     | Smart imaging and video optimization                                                                                                       | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/dynamic-media-overview-feature-video-use) |
+| **Content Advisor Agent**                | Natural language asset discovery and refinement                                                                                            | See AI Agents above                                                                                                                       |
 
 ### AEM Forms
 
@@ -622,7 +635,7 @@ Essential files for grounding AI agents (Claude, Cursor, Copilot) in AEM Cloud S
 
 ### AEM Code Assessment IDE Agent
 
-Early Adopter program (2026.6.0): detects and auto-fixes issues in AEM codebases, including deprecated API replacement and Maven dependency updates. See the current release notes linked under What's New above.
+For AI-assisted IDEs (Cursor, Claude Code, Visual Studio, IntelliJ): detects and auto-fixes deprecated API usage, outdated Sling Model dependency injection, outdated Maven dependencies, missing HTTP call timeouts, and unbounded queries/schedulers/listeners (2026.7.0). See the current release notes linked under What's New above.
 
 ### npm Packages
 
