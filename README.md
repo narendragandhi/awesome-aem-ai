@@ -29,12 +29,12 @@ The AEM AI landscape moves fast — agents, MCP servers, and skills ship monthly
 
 Things this list has that you won't find in the official docs:
 
-| Resource                                            | What you get                                                                                     |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [Hands-on Labs](#hands-on-labs)                     | Four step-by-step labs: AEM MCP Server, Experience Production Agent, Claude Code Skills, ACM MCP |
-| [AEM Core Skills](#aem-core-skills-this-repository) | Six AEM backend skills (HTL, Sling Models, OSGi, clientlibs, testing, EDS blocks) ready to copy  |
-| [Community MCP Servers](#community-mcp-servers)     | The tools Adobe doesn't list: community servers for Sites, EDS, and Groovy script execution      |
-| [Architecture Audit](#the-objective)                | A real-world Dispatcher security audit showing what grounded AI catches that chatbots miss       |
+| Resource                                            | What you get                                                                                                        |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [Hands-on Labs](#hands-on-labs)                     | Four step-by-step labs: AEM MCP Server, Experience Production Agent, Claude Code Skills, ACM MCP                    |
+| [AEM Core Skills](#aem-core-skills-this-repository) | Seven AEM backend skills (HTL, Sling Models, OSGi, clientlibs, testing, EDS blocks, caching strategy) ready to copy |
+| [Community MCP Servers](#community-mcp-servers)     | The tools Adobe doesn't list: community servers for Sites, EDS, and Groovy script execution                         |
+| [Architecture Audit](#the-objective)                | A real-world Dispatcher security audit showing what grounded AI catches that chatbots miss                          |
 
 ## What's New (July 2026)
 
@@ -389,14 +389,15 @@ gh upskill adobe/helix-website --all
 
 Pre-built AEM backend skills available in `.claude/skills/`:
 
-| Skill                | Description                                          | File                                       |
-| -------------------- | ---------------------------------------------------- | ------------------------------------------ |
-| **aem-htl**          | HTL/Sightly templating, data binding, contexts, i18n | [View](.claude/skills/aem-htl.md)          |
-| **aem-sling-models** | Sling Models, injectors, delegation, exporters       | [View](.claude/skills/aem-sling-models.md) |
-| **aem-osgi**         | OSGi services, configs, schedulers, events           | [View](.claude/skills/aem-osgi.md)         |
-| **aem-clientlibs**   | Client libraries, dependencies, optimization         | [View](.claude/skills/aem-clientlibs.md)   |
-| **aem-testing**      | Unit tests, AEM Mocks, integration tests             | [View](.claude/skills/aem-testing.md)      |
-| **eds-blocks**       | EDS block development, patterns, utilities           | [View](.claude/skills/eds-blocks.md)       |
+| Skill                    | Description                                                        | File                                           |
+| ------------------------ | ------------------------------------------------------------------ | ---------------------------------------------- |
+| **aem-htl**              | HTL/Sightly templating, data binding, contexts, i18n               | [View](.claude/skills/aem-htl.md)              |
+| **aem-sling-models**     | Sling Models, injectors, delegation, exporters                     | [View](.claude/skills/aem-sling-models.md)     |
+| **aem-osgi**             | OSGi services, configs, schedulers, events                         | [View](.claude/skills/aem-osgi.md)             |
+| **aem-clientlibs**       | Client libraries, dependencies, optimization                       | [View](.claude/skills/aem-clientlibs.md)       |
+| **aem-testing**          | Unit tests, AEM Mocks, integration tests                           | [View](.claude/skills/aem-testing.md)          |
+| **eds-blocks**           | EDS block development, patterns, utilities                         | [View](.claude/skills/eds-blocks.md)           |
+| **aem-caching-strategy** | Dispatcher/CDN caching, invalidation, permission-sensitive caching | [View](.claude/skills/aem-caching-strategy.md) |
 
 ### Installation
 
