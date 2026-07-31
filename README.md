@@ -63,7 +63,6 @@ Things this list has that you won't find in the official docs:
 - [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain for performance marketing.
 - [Content Hub](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/content-hub/product-overview.html) - AI-enhanced asset management.
 - [AI Assistant in AEM](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem-admin) - Integrated AI assistant for product knowledge and support.
-- [Adobe Sensei](https://www.adobe.com/sensei.html) - Adobe's AI and machine learning framework.
 
 ### Announcements
 
@@ -495,12 +494,12 @@ See the GenStudio product page linked under Official Resources above.
 
 ### AEM Screens
 
-| Feature                         | Description                                                                            | Documentation                                                                                                                             |
-| ------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Data-Driven Personalization** | Rules-based personalization for digital signage based on location, time, audience data | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/user-guide/aem-screens-introduction)                         |
-| **Smart Image Cropping**        | AI-powered focal point detection for screen dimensions (inherited from Assets)         | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/using/authoring/setting-up-acls)                             |
-| **Adobe Analytics Integration** | Understanding signage performance with analytics                                       | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/using/administering/configuring-adobe-analytics-aem-screens) |
-| **Adobe Target A/B Testing**    | AI-assisted testing for digital signage content                                        | See Adobe Analytics Integration docs above                                                                                                |
+| Feature                         | Description                                                                                                                     | Documentation                                                                                                                              |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Data-Driven Personalization** | Rules-based personalization for digital signage based on location, time, audience data                                          | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-screens/user-guide/aem-screens-introduction)                          |
+| **Smart Image Cropping**        | AI-powered focal point detection for screen dimensions (inherited from Assets)                                                  | See Smart Crop under Assets above                                                                                                          |
+| **Adobe Analytics Integration** | Understanding signage performance with analytics (general AEM Analytics integration pattern; no Screens-specific doc published) | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/integrations/integrating-adobe-analytics) |
+| **Adobe Target A/B Testing**    | AI-assisted testing for digital signage content                                                                                 | See Adobe Analytics Integration docs above                                                                                                 |
 
 > **Note:** AEM Screens inherits AI capabilities from AEM Sites and Assets (Smart Tags, Smart Crop, etc.) for content that is published to digital signage displays.
 
@@ -538,12 +537,12 @@ LLM Optimizer is part of Adobe's Brand Visibility solution (Summit 2026, linked 
 
 ### Tutorials & Guides
 
-| Resource                         | Description                                                      | Link                                                                                                                      |
-| -------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Quick Start**                  | Onboarding and initial setup guide                               | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/quick-start)                             |
-| **Best Practices**               | Strategic planning, onsite/offsite optimization, agentic traffic | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/best-practices)                          |
-| **Interactive Tour**             | Hands-on tour of Adobe LLM Optimizer                             | [Demo](https://business.adobe.com/resources/llm-optimizer-interactive-tour/thank-you.html)                                |
-| **Why We Created LLM Optimizer** | Product vision and use cases                                     | [Blog](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/why-we-created-llm-optimizer/m-p/781361) |
+| Resource                         | Description                                                      | Link                                                                                                                       |
+| -------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Quick Start**                  | Onboarding and initial setup guide                               | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/quick-start)                              |
+| **Best Practices**               | Strategic planning, onsite/offsite optimization, agentic traffic | [Docs](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/essentials/best-practices)                           |
+| **Interactive Tour**             | Hands-on tour of Adobe LLM Optimizer                             | [Demo](https://business.adobe.com/resources/llm-optimizer-interactive-tour.html)                                           |
+| **Why We Created LLM Optimizer** | Product vision and use cases                                     | [Blog](https://experienceleaguecommunities.adobe.com/adobe-experience-manager-sites-8/why-we-created-llm-optimizer-227991) |
 
 ### Integration
 
@@ -817,12 +816,11 @@ cd awesome-aem-ai/tutorials
 | ------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **Unlocking AEM's Potential with AI** | AI integration in AEM - Agentic, GenAI, AI Assistant | [YouTube](https://www.youtube.com/watch?v=2J5doCFH4TQ)                                                                                  |
 | **AI Assistant in AEM**               | Configuration and live demo                          | [YouTube](https://experienceleague.adobe.com/en/docs/events/adobe-customer-success-webinar-recordings/2025/aem2025/ai-assistant-in-aem) |
-| **AEM + MCP Integration**             | MCP for content, components, assets management       | [Playbooks](https://playbooks.com/mcp/easingthemes/aem-mcp-server)                                                                      |
+| **AEM + MCP Integration**             | MCP for content, components, assets management       | [GitHub](https://github.com/easingthemes/aem-mcp-server)                                                                                |
 
 ### YouTube Channels
 
-- [Adobe Experience League](https://www.youtube.com/@AdobeExperienceLeague) - Official Adobe tutorials and release updates.
-- [AEM Rocks](https://www.youtube.com/@aemrocks) - Popular AEM tutorial channel.
+- [Adobe Experience League](https://www.youtube.com/channel/UCZmdiWfGGoTPBnyNkB8Il5w) - Official Adobe tutorials and release updates.
 - [AEM Geeks](https://www.youtube.com/@aemgeeks) - Community AEM tutorials.
 - [aem-live](https://www.youtube.com/@aem-live) - Official Adobe AEM channel.
 
