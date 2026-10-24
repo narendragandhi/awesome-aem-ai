@@ -59,6 +59,7 @@ The current feature release is [2026.9.0](https://experienceleague.adobe.com/en/
 - [Local Development with AI Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/local-development-with-ai-tools) - Official guide for local AI-enhanced development.
 - [AI-Assisted Development](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/ai-assisted-development/overview) - Learn tutorials for agent skills, AGENTS.md, and MCP setup.
 - [Agents in AEM (Learn)](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/agents/agents-in-aem) - Hands-on tutorial for AEM agents.
+- [AEM MCP Modules for Workfront Fusion](https://experienceleague.adobe.com/en/docs/workfront-fusion/using/references/apps-and-their-modules/adobe-connectors/aem-mcp-modules) - Call AEM MCP tools from Fusion automation scenarios.
 
 ### Adobe AI Products
 
@@ -209,6 +210,8 @@ Adobe recommends a single endpoint over configuring the domain-specific servers 
 
 This same endpoint backs the [AEM Claude Connector](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/chat-applications/setup-claude) (install from Claude's connector directory on claude.ai) and the [AEM ChatGPT Plugin](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/chat-applications/setup-chatgpt) (one-click install from OpenAI's plugin marketplace).
 
+**Connecting a client:** Adobe documents setup per tool in the [Setup Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/using-mcp-with-aem-as-a-cloud-service#setup-overview) - Claude and ChatGPT as above, plus Cursor, JetBrains with GitHub Copilot, and [Microsoft Copilot Studio](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/enterprise-platforms/setup-microsoft-copilot-studio).
+
 ### Official Adobe MCP Servers (Domain-Specific, Deprecated)
 
 Deprecated as of 2026.9.0. They still work, but Adobe recommends the unified AEM MCP Server above instead - Cloud Manager operations in particular moved there. Cloud Migration is the exception: it is not part of the unified endpoint yet, so it stays in use. Hosted at `https://mcp.adobeaemcloud.com/adobe/mcp/`:
@@ -258,6 +261,19 @@ See the Local Development with AI Tools guide linked under Official Resources ab
 
 **Also recommended by the aem.live AI coding agents guide:** Context7 (API docs indexing including AEM), DA MCP Server (Document Authoring content workflows), and Browser MCP (remote browser control and screenshots).
 
+### Official Adobe MCP Tutorials
+
+Adobe's own end-to-end walkthroughs for the AEM MCP Server on Experience League.
+
+| Tutorial                                                                                                                                                                                           | What it walks through                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [AEM MCP Server (hub)](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/mcp-servers/overview)                                                                  | Capability list and per-client connection steps. Treat its scope note with care: the page still says Cloud Manager sits outside the `aem` endpoint, which 2026.9.0 changed.                                                                                  |
+| [Create test content without leaving your IDE](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/mcp-servers/accelerate-content-operations-with-aem-mcp-server) | Create and update AEM test content in natural language from the IDE                                                                                                                                                                                          |
+| [Manage your website with the help of AI](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/mcp-servers/manage-your-website-with-ai)                            | Update a page and its linked content fragment, publish, then roll back - all by prompt                                                                                                                                                                       |
+| [Run and debug AEM pipelines from your IDE](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/mcp-servers/cloud-manager)                                        | Start pipelines, debug failures, and manage programs and environments                                                                                                                                                                                        |
+| [Check AEM content for brand compliance](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/mcp-servers/experience-governance-mcp-server)                        | Evaluate pages, text, and images against brand governance rules                                                                                                                                                                                              |
+| [Search and analyze content with natural language](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/mcp-servers/content-ai-mcp-server)                         | Keyword, semantic, hybrid, and generative search over AEM Content AI sources, driven from CX Coworker through a companion Content AI MCP Server. Its endpoint is still an expiring experimental URL - read it from the tutorial rather than pinning it here. |
+
 ---
 
 ## AI Agents
@@ -277,6 +293,8 @@ Adobe's AEM agents are organized into three top-level agents. [Overview](https:/
 #### Where the Agents Run: CX Enterprise Coworker
 
 Since early September 2026, AEM's agentic capabilities are generally available inside Adobe CX Enterprise Coworker, an AI teammate for marketing and CX teams. Authors reach them through the **Ask Coworker** entry point, and the capabilities collaborate with Coworker Chat rather than running as standalone agents inside AEM.
+
+Rollout caveat from the release notes: once enabled, only the Coworker immersive experience is available - the in-product right-rail panel inside AEM comes later.
 
 | Resource                                                                                                                                        | What it covers                                                                      |
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -375,7 +393,7 @@ Capabilities that do not sit under the three top-level agents:
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | **Permission Management**             | Ask in plain language who can do what on a content path; the Governance Agent audits effective ACLs on author in real time, explaining access decisions and their source policies (2026.8.0) | GA     |
 | **Content Supply Chain Agent**        | Two cooperating agents - CSC Blueprint maps the supply chain, CSC Integration implements governed data movement                                                                              | Beta   |
-| **CX Coworker for Developers**        | Troubleshooting for CDN, replication, and workflows, plus code modernization guidance                                                                                                        | Beta   |
+| **CX Coworker for Developers**        | Troubleshooting for CDN, replication, and workflows, plus code modernization guidance. Beta program is request-only: email `aem-devagent@adobe.com`                                          | Beta   |
 | **Content Advisor Browser Extension** | Asset recommendations surfaced inside other web applications                                                                                                                                 | Beta   |
 | **GenAI Extension Generation**        | Accelerates extension development for Assets View (internal early adoption)                                                                                                                  | Beta   |
 
