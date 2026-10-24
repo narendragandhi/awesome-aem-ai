@@ -856,10 +856,11 @@ cd awesome-aem-ai/tutorials
 
 ### Community Tools
 
-| Tool                     | Description              | Link                                                     |
-| ------------------------ | ------------------------ | -------------------------------------------------------- |
-| **AEM Groovy Console**   | Script execution for AEM | [GitHub](https://github.com/orbinson/aem-groovy-console) |
-| **AEM Block Collection** | Curated EDS blocks       | [GitHub](https://github.com/adobe/aem-block-collection)  |
+| Tool                     | Description                                                                                                              | Link                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| **AEM Groovy Console**   | Script execution for AEM                                                                                                 | [GitHub](https://github.com/orbinson/aem-groovy-console) |
+| **AEM Block Collection** | Curated EDS blocks                                                                                                       | [GitHub](https://github.com/adobe/aem-block-collection)  |
+| **SLICC**                | Browser-native AI agent that mounts da.live and Helix 6 AEM Source Bus content as a filesystem agents can read and write | [GitHub](https://github.com/ai-ecoverse/slicc)           |
 
 ---
 
