@@ -58,6 +58,7 @@ The current feature release is [2026.9.0](https://experienceleague.adobe.com/en/
 - [Using MCP with AEM as a Cloud Service](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/using-mcp-with-aem-as-a-cloud-service) - Official MCP integration guide.
 - [Local Development with AI Tools](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/local-development-with-ai-tools) - Official guide for local AI-enhanced development.
 - [AI-Assisted Development](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/ai-assisted-development/overview) - Learn tutorials for agent skills, AGENTS.md, and MCP setup.
+- [Adobe AI Registry](https://github.com/AdobeDocs/ai-registry-docs) - Adobe's official MCP server registry (hosted at ai.adobe.io, mirrored daily to this repo) - the authoritative, auto-synced list of official MCP servers with capability and setup docs.
 - [Agents in AEM (Learn)](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/ai/agents/agents-in-aem) - Hands-on tutorial for AEM agents.
 - [AEM MCP Modules for Workfront Fusion](https://experienceleague.adobe.com/en/docs/workfront-fusion/using/references/apps-and-their-modules/adobe-connectors/aem-mcp-modules) - Call AEM MCP tools from Fusion automation scenarios.
 
@@ -232,6 +233,18 @@ Deprecated as of 2026.9.0. They still work, but Adobe recommends the unified AEM
 - Supports Claude, ChatGPT, Cursor, VS Code, JetBrains, GitHub Copilot, Claude Code, Cline, Windsurf, and Microsoft Copilot Studio
 
 See the official MCP documentation linked under Official Resources above.
+
+### AEM Guides MCP Server
+
+Separate from the unified AEM endpoint - Guides-specific operations shipped in the 2026.08.0 release. Cloud access is opt-in per organization (your IMS org must be allow-listed by the Adobe Guides team):
+
+| Server                    | Endpoint                                        | Description                                                                                              |
+| ------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **AEM Guides MCP Server** | `https://mcp.adobeaemcloud.com/adobe/mcp/guides` | Work with topics and maps, create and export baselines, and generate reports under existing AEM permissions |
+
+On-prem AEM Guides instances expose an SSE endpoint instead: `http(s)://<author-host>/bin/guides/v1/mcp/sse` (ChatGPT additionally requires a publicly trusted TLS certificate).
+
+**Docs:** [Configure the AEM Guides MCP Server](https://experienceleague.adobe.com/en/docs/experience-manager-guides/using/install-conf-guide/aemg-integrations/mcp/configure-aem-guides-mcp) (Cloud) / [On-Premise setup](https://experienceleague.adobe.com/en/docs/experience-manager-guides/using/install-conf-guide/aemg-integrations/mcp/configure-aem-guides-mcp-on-prem)
 
 ### Local Runtime MCP Servers
 
@@ -505,7 +518,16 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 ### Adobe GenStudio
 
-See the GenStudio product page linked under Official Resources above.
+GenStudio now also ships its own GA MCP server and a public REST API:
+
+| Resource                      | Description                                                                                                                           | Link / Endpoint                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **GenStudio MCP Server** (GA) | Insights (Meta/LinkedIn/Innovid performance + recommendations), Create (drafts from Express templates), Activate (publish approved ads) | `https://genstudio-services.adobe.io/mcp`                                  |
+| **GenStudio Experience API**  | Public REST API to read approved Experiences and download assets via pre-signed URLs (OAuth Server-to-Server)                          | [Docs](https://developer.adobe.com/genstudio-api/)                         |
+
+Works in Adobe CX Enterprise Coworker, Claude, ChatGPT, Codex, Writer, and Microsoft Copilot. Connection guide: [Connect AI assistants](https://experienceleague.adobe.com/en/docs/genstudio-for-performance-marketing/user-guide/ai-assistants/connect-ai-assistants). Note: Activate publishes live ads (irreversible) and can incur ad spend.
+
+Product overview - see the GenStudio product page linked under Official Resources above:
 
 | Feature                    | Description                                                                             |
 | -------------------------- | --------------------------------------------------------------------------------------- |
@@ -704,12 +726,24 @@ Essential files for grounding AI agents (Claude, Cursor, Copilot) in AEM Cloud S
 
 For AI-assisted IDEs (Cursor, Claude Code, Visual Studio, IntelliJ): detects and auto-fixes deprecated API usage, outdated Sling Model dependency injection, outdated Maven dependencies, missing HTTP call timeouts, and unbounded queries/schedulers/listeners (2026.7.0). As of 2026.9.0 it also performs AEM query optimization, flagging JCR/Oak index misconfiguration - GA on October 1, 2026. See the current release notes linked under What's New above.
 
+### Spectrum Design-System MCP Servers
+
+Official local MCP servers for the design system behind all Adobe UIs - useful when building App Builder UI extensions for AEM and Cloud Manager with React Spectrum:
+
+| Server                        | Scope                                                                                  | Links                                                                                                                                                                   |
+| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **React Spectrum (S2) MCP**   | Component docs, S2 icon/illustration search, style macro values (npx, no auth)          | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/react-spectrum-mcp.md) / [Repo](https://github.com/adobe/react-spectrum)             |
+| **Spectrum Design Data MCP**  | Design tokens and component API schemas, queryable by name, type, category, or value    | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/spectrum-design-data-mcp.md) / [Repo](https://github.com/adobe/spectrum-design-data) |
+| **React Aria MCP**            | Accessible primitives documentation                                                     | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/react-aria-mcp.md)                                                                   |
+
 ### npm Packages
 
 #### Official Adobe Packages
 
 | Package                                                                                              | Description                            | Install                                   |
 | ---------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------------------------- |
+| [@adobe/aio-cli](https://www.npmjs.com/package/@adobe/aio-cli)                                       | Adobe I/O CLI - hosts App Builder, Cloud Manager, RDE, and agentic plugin workflows | `npm i -g @adobe/aio-cli`                 |
+| [@adobe/aio-cli-plugin-aem-rde](https://www.npmjs.com/package/@adobe/aio-cli-plugin-aem-rde)         | Deploy to and manage AEM Rapid Development Environments | `aio plugins:install @adobe/aio-cli-plugin-aem-rde` |
 | [@adobe/aem-cli](https://www.npmjs.com/package/@adobe/aem-cli)                                       | AEM/EDS CLI for local development      | `npm i -g @adobe/aem-cli`                 |
 | [@adobe/aem-headless-client-js](https://www.npmjs.com/package/@adobe/aem-headless-client-js)         | AEM Headless SDK Client                | `npm i @adobe/aem-headless-client-js`     |
 | [@adobe/aem-import-helper](https://www.npmjs.com/package/@adobe/aem-import-helper)                   | Helper tool for importing sites to AEM | `npm i @adobe/aem-import-helper`          |
