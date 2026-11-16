@@ -1,0 +1,36 @@
+name: Watch upstream sources
+
+on:
+  schedule:
+    - cron: "0 7 * * 1,4" # Mondays and Thursdays 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Compare upstream sources with the saved state
+        id: watch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/watch-sources.mjs
+      - name: Open or update the refresh issue
+        if: steps.watch.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title='Upstream changes: README refresh needed'
+          existing=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file upstream-report.md
+          else
+            gh issue create --title "$title" --body-file upstream-report.md
+          fi

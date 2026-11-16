@@ -8,15 +8,15 @@ Internal playbook for keeping this list useful, lint-clean, and visible. Freshne
 
 Check these sources, newest first:
 
-| Source | What to look for |
-| ------ | ---------------- |
-| [Current release notes](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/release-notes-current) | New AI features, GA/Early Adopter status changes |
-| [AI in AEM docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview) | Agent restructures, new MCP servers, renamed doc paths |
-| [aem.live AI coding agents](https://www.aem.live/developer/ai-coding-agents) | New recommended tools, skills, MCP servers |
-| [Adobe Developer Blog](https://blog.developer.adobe.com/) | Architecture/strategy posts (e.g., "Agentic Evolution of AEM") |
-| [news.adobe.com](https://news.adobe.com/) | Product announcements, especially around Summit (March/April) |
-| [adobe/skills](https://github.com/adobe/skills) | New skills, install method changes |
-| npm/GitHub search for "aem mcp" | New community MCP servers |
+| Source                                                                                                                                                         | What to look for                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [Current release notes](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/release-notes-current) | New AI features, GA/Early Adopter status changes               |
+| [AI in AEM docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/overview)                                       | Agent restructures, new MCP servers, renamed doc paths         |
+| [aem.live AI coding agents](https://www.aem.live/developer/ai-coding-agents)                                                                                   | New recommended tools, skills, MCP servers                     |
+| [Adobe Developer Blog](https://blog.developer.adobe.com/)                                                                                                      | Architecture/strategy posts (e.g., "Agentic Evolution of AEM") |
+| [news.adobe.com](https://news.adobe.com/)                                                                                                                      | Product announcements, especially around Summit (March/April)  |
+| [adobe/skills](https://github.com/adobe/skills)                                                                                                                | New skills, install method changes                             |
+| npm/GitHub search for "aem mcp"                                                                                                                                | New community MCP servers                                      |
 
 Watch for **doc URL migrations** — Adobe reorganizes Experience League paths when products restructure (e.g., `/agents/production/` became `/agents/brand-experience/experience-production/` when agents were consolidated). Old URLs usually redirect, but update them anyway.
 
@@ -36,6 +36,28 @@ Watch for **doc URL migrations** — Adobe reorganizes Experience League paths w
 npx prettier --write README.md   # fixes table pipe alignment
 npx awesome-lint                  # must report 0 errors
 ```
+
+### 4. Record what the refresh covered
+
+```bash
+node scripts/watch-sources.mjs --update   # saves .github/source-state.json
+```
+
+Commit the state file with the README change. It is the baseline the source watcher compares against, so skipping this step makes the watcher re-report changes that are already handled.
+
+## Automation
+
+Nothing here edits the README or merges on its own. The automation detects; a human (or a drafting agent whose pull request a human reviews) decides.
+
+| Workflow                      | When                                   | What it does                                                                                                    |
+| ----------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `lint.yml` (awesome-lint job) | Every push, every pull request, weekly | Fails if prettier or `awesome-lint` reports an error                                                            |
+| `lint.yml` (links job)        | Mondays, or on demand                  | Checks every README link and opens or updates one issue listing dead links                                      |
+| `watch-sources.yml`           | Mondays and Thursdays, or on demand    | Runs `scripts/watch-sources.mjs` and opens or updates one issue listing upstream changes since the last refresh |
+
+The watcher tracks names and headings only: release-notes feature headings with their status section, AI in AEM doc pages, adobe/skills plugins and AEM skills, Adobe AI Registry MCP servers, LLM Apps doc pages, and npm major versions. It does not read news.adobe.com, aem.live, or the Adobe Developer Blog, so those still need a manual look each cycle.
+
+A status move such as Limited Availability to GA shows up as one "Removed" and one "Added" line for the same feature. Confirm it on the live page before editing; search engines and page summarizers lag these changes.
 
 ## awesome-lint Rules (learned the hard way)
 

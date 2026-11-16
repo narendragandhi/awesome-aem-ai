@@ -1,0 +1,60 @@
+name: Lint and link check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  awesome-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # awesome-lint reads the git history
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npx --yes prettier --check README.md
+      - run: npx --yes awesome-lint
+
+  links:
+    # Links rot on their own schedule, so this runs weekly and on demand, not on every push.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # npmjs.com and business.adobe.com block automated clients; experience.adobe.com needs a login.
+          args: >-
+            --no-progress --max-retries 3 --timeout 30 --max-concurrency 8
+            --accept '200..=299,429'
+            --exclude 'npmjs\.com' --exclude 'business\.adobe\.com' --exclude 'experience\.adobe\.com'
+            --exclude 'linkedin\.com' --exclude 'marketplace\.visualstudio\.com'
+            README.md
+          output: lychee-report.md
+          fail: false
+      - name: Open or update the dead-link issue
+        if: steps.lychee.outputs.exit_code != 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title='Dead links found by the weekly link check'
+          existing=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file lychee-report.md
+          else
+            gh issue create --title "$title" --body-file lychee-report.md
+          fi
