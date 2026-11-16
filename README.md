@@ -7,7 +7,7 @@ The AEM AI landscape moves fast — agents, MCP servers, and skills ship monthly
 ## Contents
 
 - [Start Here](#start-here)
-- [What's New (October 2026)](#whats-new-october-2026)
+- [What's New (November 2026)](#whats-new-november-2026)
 - [Official Resources](#official-resources)
 - [Architecture](#architecture)
 - [MCP Servers](#mcp-servers)
@@ -16,6 +16,7 @@ The AEM AI landscape moves fast — agents, MCP servers, and skills ship monthly
 - [IDE Extensions & Plugins](#ide-extensions--plugins)
 - [AI Features by AEM Product](#ai-features-by-aem-product)
 - [Adobe LLM Optimizer](#adobe-llm-optimizer)
+- [Adobe LLM Apps](#adobe-llm-apps)
 - [Edge Delivery Services AI](#edge-delivery-services-ai)
 - [Development Tools](#development-tools)
 - [Real-World Architecture Audit](#real-world-architecture-audit)
@@ -36,17 +37,20 @@ Things this list has that you won't find in the official docs:
 | [Community MCP Servers](#community-mcp-servers)     | The tools Adobe doesn't list: community servers for Sites, EDS, and Groovy script execution                         |
 | [Architecture Audit](#the-objective)                | A real-world Dispatcher security audit showing what grounded AI catches that chatbots miss                          |
 
-## What's New (October 2026)
+## What's New (November 2026)
 
-The current feature release is [2026.9.0](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/release-notes-current) (September 24, 2026); 2026.10.0 is planned for October 29, 2026.
+The current feature release is [2026.10.0](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/release-notes/release-notes/release-notes-current) (October 29, 2026); 2026.11.0 is planned for November 19, 2026.
 
-- AEM's agentic capabilities are now GA inside Adobe CX Enterprise Coworker (see AI Agents below). Since early September they run as part of Coworker - an AI teammate for marketing and CX teams - reached through the **Ask Coworker** entry point rather than standing alone in AEM.
-- The agent documentation restructured into [Agentic Capabilities](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agentic-capabilities/overview), grouped as Brand Experience (Experience Production, Development, Onboarding), Content Advisor (Discovery, Content Optimization), and Brand Governance. The older per-agent pages are still published alongside them.
-- The unified AEM MCP Server absorbed Cloud Manager operations - programs, environments, repositories, and pipelines - in 2026.9.0. The domain-specific MCP servers are now deprecated; switch to the single `aem` endpoint.
-- IDE agent skills gained AEM query optimization: as of October 1 the Code Assessment Agent Skill checks whether a JCR/Oak query is actually served by an index, and flags index definitions that look correct but are subtly misconfigured. The Cloud Migration Agent Skill added more AEM 6.5-to-Cloud-Service code migration patterns.
-- Permission management went agentic in 2026.8.0 (GA) - it audits effective ACLs and explains access decisions in real time.
-- Content Hub gained AI Search and Smart Collections, and Dynamic Media with OpenAPI gained AI-generated video captions - all three in Limited Availability, not yet GA. In beta: the Content Supply Chain Agent (CSC Blueprint plus CSC Integration), CX Coworker developer troubleshooting for CDN/replication/workflows, Dynamic Media Auto Translate, and the Content Advisor browser extension.
-- A new AEM Content AI documentation set (linked under Official Resources below) positions governed AEM content as the ground truth that AI experiences and agents are grounded in.
+- Adobe LLM Apps left beta. Adobe's documentation now states it is available to all AEM Sites Cloud Service customers, and the beta onboarding pages are gone. It lets a brand ship actions and interactive widgets inside ChatGPT and Claude - see the Adobe LLM Apps section below.
+- CX Enterprise Coworker, where AEM's agentic capabilities run, moved into third-party AI platforms on November 4: ChatGPT (as a plugin), Claude, Databricks Genie, Gemini for business, IBM watsonx Orchestrate, and Microsoft Copilot, with Amazon Quick and Snowflake expected soon. Adobe also launched pre-built MCP connectors for Coworker (announcement linked under Official Resources below).
+- The unified AEM MCP Server gained Cloud Migration capabilities in 2026.10.0 and now has full parity with the domain-specific servers. All five domain-specific endpoints are deprecated; configure the single `aem` endpoint.
+- Two developer capabilities went GA in Coworker Chat: [AEM Workflow Inspection and AEM Dispatcher Insights](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agentic-capabilities/brand-experience/development/use-cases). Ask in plain language why a workflow failed, what the Dispatcher cache hit ratio is, or why a page is still stale after publication.
+- The AEM Governance Agent added [vulnerability assessment](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agentic-capabilities/brand-governance/use-cases): it lists known vulnerabilities across AEM instances, filterable by CVE, severity, environment, or component.
+- AEM Forms: Adaptive Form authoring arrived in CX Coworker - import a PDF or XDP as a starting point, create REST API integrations, and write or edit form rules in natural language, with a code mode for rule authoring.
+- Content Hub AI Search, Smart Collections, and AI-generated video captions for Dynamic Media with OpenAPI moved from Limited Availability to GA in 2026.10.0.
+- The [Cloud Migration Agent Skill](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/migration-journey/cloud-migration-skill/overview-cloud-migration-skill) added InputStream triage, plus two beta features: Oak index conversion and migration validation against a local SDK.
+- adobe/skills grew: new `aem-eds-personalization` and `aem-forms-edge-delivery-services` plugins, two new EDS skills (`aem-block-library`, `aem-layout-view`), and three more content-ops skills (see Claude Code Skills below).
+- Still in beta: the Content Supply Chain Agent, CX Coworker developer troubleshooting for CDN and replication, Dynamic Media Auto Translate, Brand Aware Metadata, and the Content Advisor browser extension.
 
 ---
 
@@ -65,6 +69,7 @@ The current feature release is [2026.9.0](https://experienceleague.adobe.com/en/
 ### Adobe AI Products
 
 - [Adobe LLM Optimizer](https://experienceleague.adobe.com/en/docs/llm-optimizer/using/home) - Generative Engine Optimization (GEO) for AI search visibility.
+- [Adobe LLM Apps](https://experienceleague.adobe.com/en/docs/llm-apps/using/overview) - Build brand-owned actions and interactive widgets that run inside ChatGPT and Claude, managed from AEM.
 - [Adobe Brand Concierge](https://experienceleague.adobe.com/en/docs/brand-concierge/content/home) - AI-powered conversational companion for websites, with AEM as a content source.
 - [AEM Content AI](https://experienceleague.adobe.com/en/docs/experience-manager-content-ai/using/introduction) - Semantic search, grounded generation, and APIs that make governed AEM content the ground truth for AI experiences.
 - [Adobe GenStudio](https://business.adobe.com/products/genstudio.html) - AI-powered content supply chain for performance marketing.
@@ -73,6 +78,7 @@ The current feature release is [2026.9.0](https://experienceleague.adobe.com/en/
 
 ### Announcements
 
+- [CX Enterprise Coworker in Third-Party AI Platforms (November 2026)](https://news.adobe.com/news/2026/11/adobe-integrates-agentic-cx-enterprise-coworker-into-ai-platforms) - Coworker available inside ChatGPT, Claude, Databricks Genie, Gemini for business, IBM watsonx Orchestrate, and Microsoft Copilot, plus new pre-built MCP connectors.
 - [Adobe Brand Visibility Solution (April 2026)](https://news.adobe.com/news/2026/04/adobe-introduces-brand-visibility-solution) - Summit 2026 introduced AEM as the "brand context layer," LLM Apps for building experiences inside LLM interfaces, and agentic authoring.
 - [The Agentic Evolution of Adobe Experience Manager (February 2026)](https://blog.developer.adobe.com/en/publish/2026/02/the-agentic-evolution-of-adobe-experience-manager) - MCP/A2A APIs, instructional authoring, in-product agent, and AEM Playground.
 - [Adobe AI Agents GA (September 2025)](https://news.adobe.com/news/downloads/pdfs/2025/09/091025-general-availability-of-ai-agents.pdf) - General availability of AI agents for customer experience orchestration.
@@ -203,11 +209,11 @@ Model Context Protocol (MCP) servers that integrate with AEM and EDS.
 
 ### AEM MCP Server (Unified, Recommended)
 
-Adobe recommends a single endpoint over configuring the domain-specific servers individually. As of 2026.9.0 it also covers Cloud Manager operations, which previously required the separate server:
+Adobe recommends a single endpoint over configuring the domain-specific servers individually. It absorbed Cloud Manager operations in 2026.9.0 and Cloud Migration capabilities in 2026.10.0, reaching full parity with the domain-specific servers:
 
-| Server             | Endpoint                                      | Description                                                                                                                                                                                                                                                                                                                                |
-| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **AEM MCP Server** | `https://mcp.adobeaemcloud.com/adobe/mcp/aem` | Three toolsets in one endpoint: Content (CRUD for pages, fragments, and assets, plus asset search and import), Experience Governance (brand rule checks), and Cloud Manager (programs, environments, repositories, pipelines). Cloud Migration is the one capability not folded in - add that domain-specific server separately if needed. |
+| Server             | Endpoint                                      | Description                                                                                                                                                                                                                                                                                                                  |
+| ------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AEM MCP Server** | `https://mcp.adobeaemcloud.com/adobe/mcp/aem` | Four toolsets in one endpoint: Content (CRUD for pages, fragments, and assets, plus asset search and import), Experience Governance (brand rule checks), Cloud Manager (programs, environments, repositories, pipelines), and Cloud Migration (the capabilities behind the Cloud Migration Agent Skill, added in 2026.10.0). |
 
 This same endpoint backs the [AEM Claude Connector](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/chat-applications/setup-claude) (install from Claude's connector directory on claude.ai) and the [AEM ChatGPT Plugin](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/mcp-support/chat-applications/setup-chatgpt) (one-click install from OpenAI's plugin marketplace).
 
@@ -215,15 +221,15 @@ This same endpoint backs the [AEM Claude Connector](https://experienceleague.ado
 
 ### Official Adobe MCP Servers (Domain-Specific, Deprecated)
 
-Deprecated as of 2026.9.0. They still work, but Adobe recommends the unified AEM MCP Server above instead - Cloud Manager operations in particular moved there. Cloud Migration is the exception: it is not part of the unified endpoint yet, so it stays in use. Hosted at `https://mcp.adobeaemcloud.com/adobe/mcp/`:
+Deprecated. As of 2026.10.0 the unified AEM MCP Server above has reached parity with all of them, Cloud Migration included, and Adobe's release notes tell you to switch your MCP clients to it. Hosted at `https://mcp.adobeaemcloud.com/adobe/mcp/`:
 
-| Server                    | Endpoint                 | Description                                                      | Status         |
-| ------------------------- | ------------------------ | ---------------------------------------------------------------- | -------------- |
-| **Content Server**        | `/content`               | Full CRUD operations for pages, fragments, and assets            | Deprecated     |
-| **Content Read-Only**     | `/content-readonly`      | Read-only access for retrieval operations                        | Deprecated     |
-| **Cloud Manager**         | `/cloudmanager`          | Manage programs, environments, repositories, and pipelines       | Deprecated     |
-| **Experience Governance** | `/experience-governance` | Assess content compliance against brand governance standards     | Deprecated     |
-| **Cloud Migration**       | `/cloud-migration`       | Migration analysis data for AEM 6.x to Cloud Service transitions | Still required |
+| Server                    | Endpoint                 | Description                                                      | Status     |
+| ------------------------- | ------------------------ | ---------------------------------------------------------------- | ---------- |
+| **Content Server**        | `/content`               | Full CRUD operations for pages, fragments, and assets            | Deprecated |
+| **Content Read-Only**     | `/content-readonly`      | Read-only access for retrieval operations                        | Deprecated |
+| **Cloud Manager**         | `/cloudmanager`          | Manage programs, environments, repositories, and pipelines       | Deprecated |
+| **Experience Governance** | `/experience-governance` | Assess content compliance against brand governance standards     | Deprecated |
+| **Cloud Migration**       | `/cloud-migration`       | Migration analysis data for AEM 6.x to Cloud Service transitions | Deprecated |
 
 **Key Features:**
 
@@ -238,8 +244,8 @@ See the official MCP documentation linked under Official Resources above.
 
 Separate from the unified AEM endpoint - Guides-specific operations shipped in the 2026.08.0 release. Cloud access is opt-in per organization (your IMS org must be allow-listed by the Adobe Guides team):
 
-| Server                    | Endpoint                                        | Description                                                                                              |
-| ------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Server                    | Endpoint                                         | Description                                                                                                 |
+| ------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | **AEM Guides MCP Server** | `https://mcp.adobeaemcloud.com/adobe/mcp/guides` | Work with topics and maps, create and export baselines, and generate reports under existing AEM permissions |
 
 On-prem AEM Guides instances expose an SSE endpoint instead: `http(s)://<author-host>/bin/guides/v1/mcp/sse` (ChatGPT additionally requires a publicly trusted TLS certificate).
@@ -306,6 +312,8 @@ Adobe's AEM agents are organized into three top-level agents. [Overview](https:/
 #### Where the Agents Run: CX Enterprise Coworker
 
 Since early September 2026, AEM's agentic capabilities are generally available inside Adobe CX Enterprise Coworker, an AI teammate for marketing and CX teams. Authors reach them through the **Ask Coworker** entry point, and the capabilities collaborate with Coworker Chat rather than running as standalone agents inside AEM.
+
+As of November 4, 2026, Coworker is also available inside third-party AI platforms - ChatGPT (as a plugin), Claude, Databricks Genie, Gemini for business, IBM watsonx Orchestrate, and Microsoft Copilot - with Amazon Quick and Snowflake expected soon (see Announcements above).
 
 Rollout caveat from the release notes: once enabled, only the Coworker immersive experience is available - the in-product right-rail panel inside AEM comes later.
 
@@ -388,11 +396,12 @@ Discover, refine, and adapt assets through natural language. [Overview](https://
 
 Brand integrity and compliance enforcement. [Overview](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/agents/governance/overview)
 
-| Capability                | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
-| **Compliance Monitoring** | Detect policy violations in real-time                               |
-| **Metadata Enforcement**  | Ensure assets have required metadata                                |
-| **Brand Validation**      | Check content against tone, claims, logo, typography, imagery rules |
+| Capability                   | Description                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Compliance Monitoring**    | Detect policy violations in real-time                                                                           |
+| **Metadata Enforcement**     | Ensure assets have required metadata                                                                            |
+| **Vulnerability Assessment** | List known vulnerabilities across AEM instances; filter by CVE, severity, environment, or component (2026.10.0) |
+| **Brand Validation**         | Check content against tone, claims, logo, typography, imagery rules                                             |
 
 **Integration:** Works with ChatGPT, Claude, and other AI systems via A2A and MCP protocols, plus the official `/experience-governance` MCP server
 
@@ -402,13 +411,16 @@ Brand integrity and compliance enforcement. [Overview](https://experienceleague.
 
 Capabilities that do not sit under the three top-level agents:
 
-| Capability                            | Description                                                                                                                                                                                  | Status |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| **Permission Management**             | Ask in plain language who can do what on a content path; the Governance Agent audits effective ACLs on author in real time, explaining access decisions and their source policies (2026.8.0) | GA     |
-| **Content Supply Chain Agent**        | Two cooperating agents - CSC Blueprint maps the supply chain, CSC Integration implements governed data movement                                                                              | Beta   |
-| **CX Coworker for Developers**        | Troubleshooting for CDN, replication, and workflows, plus code modernization guidance. Beta program is request-only: email `aem-devagent@adobe.com`                                          | Beta   |
-| **Content Advisor Browser Extension** | Asset recommendations surfaced inside other web applications                                                                                                                                 | Beta   |
-| **GenAI Extension Generation**        | Accelerates extension development for Assets View (internal early adoption)                                                                                                                  | Beta   |
+| Capability                              | Description                                                                                                                                                                                  | Status |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **Permission Management**               | Ask in plain language who can do what on a content path; the Governance Agent audits effective ACLs on author in real time, explaining access decisions and their source policies (2026.8.0) | GA     |
+| **Content Supply Chain Agent**          | Two cooperating agents - CSC Blueprint maps the supply chain, CSC Integration implements governed data movement                                                                              | Beta   |
+| **Workflow Inspection**                 | Ask Coworker which workflows are running or suspended, what is in the workflow inbox, or why a workflow failed (2026.10.0)                                                                   | GA     |
+| **Dispatcher Insights**                 | Coworker analyzes Dispatcher caching and performance, traffic and request handling, and security configuration (2026.10.0)                                                                   | GA     |
+| **Adaptive Form Authoring in Coworker** | Import PDF or XDP into an Adaptive Form, create REST API integrations, and write or edit form rules in natural language (2026.10.0)                                                          | GA     |
+| **CX Coworker for Developers**          | Troubleshooting for CDN and replication, plus code modernization guidance. Beta program is request-only: email `aem-devagent@adobe.com`                                                      | Beta   |
+| **Content Advisor Browser Extension**   | Asset recommendations surfaced inside other web applications                                                                                                                                 | Beta   |
+| **GenAI Extension Generation**          | Accelerates extension development for Assets View (internal early adoption)                                                                                                                  | Beta   |
 
 ---
 
@@ -416,7 +428,7 @@ Capabilities that do not sit under the three top-level agents:
 
 ### Official Adobe Skills (adobe/skills)
 
-The [adobe/skills](https://github.com/adobe/skills) repository is production-ready (main branch) and ships as a plugin marketplace. The AEM plugins are `aem-cloud-service`, `aem-6-5-lts`, `aem-edge-delivery-services`, `aem-eds-content-ops`, and `aem-project-management`; the repo also carries App Builder, Commerce, Analytics/CJA, Workfront, and Creative Cloud plugins.
+The [adobe/skills](https://github.com/adobe/skills) repository is production-ready (main branch) and ships as a plugin marketplace. The AEM plugins are `aem-cloud-service`, `aem-6-5-lts`, `aem-edge-delivery-services`, `aem-eds-content-ops`, `aem-eds-personalization`, `aem-forms-edge-delivery-services`, and `aem-project-management`; the repo also carries App Builder, Commerce, Analytics/CJA, Workfront, and Creative Cloud plugins.
 
 ```bash
 # Add the marketplace, then install the plugin you want (recommended)
@@ -445,7 +457,16 @@ AEM Cloud Service skills (`aem-cloud-service`):
 
 AEM 6.5 LTS skills (`aem-6-5-lts`): `dispatcher`, `aem-workflow`, `aem-replication`, `ensure-agents-md`, and `tuning-oak-query-indexes`.
 
-EDS content operations (`aem-eds-content-ops`) adds 13 content and SEO skills: `accessibility-fix`, `bulk-metadata`, `content-audit`, `content-diff`, `cwv-optimizer`, `geo-rewrite`, `heading-optimizer`, `image-seo`, `internal-linking`, `link-rot-scanner`, `product-page-seo`, `sitemap-audit`, `structured-data`.
+EDS content operations (`aem-eds-content-ops`) adds 16 content and SEO skills: `accessibility-fix`, `bulk-metadata`, `content-audit`, `content-diff`, `cwv-optimizer`, `geo-rewrite`, `heading-optimizer`, `image-seo`, `internal-linking`, `link-rot-scanner`, `optel-interpreter`, `performance-budget`, `product-page-seo`, `query-index-optimizer`, `sitemap-audit`, `structured-data`.
+
+Added in November 2026:
+
+| Plugin                             | Skill                         | Description                                                                                                                            |
+| ---------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `aem-eds-personalization`          | **`personalize`**             | Section-based personalization for EDS pages - rules, a decision API, an A/B split, or Adobe Target choose the fragment a section shows |
+| `aem-forms-edge-delivery-services` | **`create-custom-component`** | Build custom components for AEM Forms on Edge Delivery Services with the Form block                                                    |
+| `aem-edge-delivery-services`       | **`aem-block-library`**       | Add a new or changed block to the block library authors insert from                                                                    |
+| `aem-edge-delivery-services`       | **`aem-layout-view`**         | Keep block and site code editable in the layout view WYSIWYG editor                                                                    |
 
 ### Official Adobe EDS Skills
 
@@ -520,10 +541,10 @@ cp -r .claude/skills/ /path/to/your/aem-project/.claude/skills/
 
 GenStudio now also ships its own GA MCP server and a public REST API:
 
-| Resource                      | Description                                                                                                                           | Link / Endpoint                                                            |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **GenStudio MCP Server** (GA) | Insights (Meta/LinkedIn/Innovid performance + recommendations), Create (drafts from Express templates), Activate (publish approved ads) | `https://genstudio-services.adobe.io/mcp`                                  |
-| **GenStudio Experience API**  | Public REST API to read approved Experiences and download assets via pre-signed URLs (OAuth Server-to-Server)                          | [Docs](https://developer.adobe.com/genstudio-api/)                         |
+| Resource                      | Description                                                                                                                             | Link / Endpoint                                    |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **GenStudio MCP Server** (GA) | Insights (Meta/LinkedIn/Innovid performance + recommendations), Create (drafts from Express templates), Activate (publish approved ads) | `https://genstudio-services.adobe.io/mcp`          |
+| **GenStudio Experience API**  | Public REST API to read approved Experiences and download assets via pre-signed URLs (OAuth Server-to-Server)                           | [Docs](https://developer.adobe.com/genstudio-api/) |
 
 Works in Adobe CX Enterprise Coworker, Claude, ChatGPT, Codex, Writer, and Microsoft Copilot. Connection guide: [Connect AI assistants](https://experienceleague.adobe.com/en/docs/genstudio-for-performance-marketing/user-guide/ai-assistants/connect-ai-assistants). Note: Activate publishes live ads (irreversible) and can incur ad spend.
 
@@ -548,30 +569,31 @@ Product overview - see the GenStudio product page linked under Official Resource
 
 ### AEM Assets
 
-| Feature                                  | Description                                                                                                                                                                        | Documentation                                                                                                                             |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **AI Search**                            | Natural language asset search ("a family at the beach") without exact metadata matches; multilingual, typo-tolerant intent matching in Content Hub (Limited Availability 2026.9.0) | Release notes 2026.9.0                                                                                                                    |
-| **Brand Aware Metadata**                 | AI-generated custom metadata on upload/re-process using prompt libraries (Early Adopter)                                                                                           | Release notes 2026.6.0                                                                                                                    |
-| **AI-Generated Video Captions**          | Automatic caption generation for Dynamic Media with OpenAPI videos, with multi-caption and multi-audio track support (Limited Availability 2026.9.0)                               | Release notes 2026.9.0                                                                                                                    |
-| **Assets Onboarding Agent**              | AI-guided DAM setup for new orgs - conversational planning plus auto-created folder hierarchies, tag taxonomies, and metadata forms (Beta)                                         | Release notes 2026.7.0                                                                                                                    |
-| **Generate Renditions from Content Hub** | Create channel-specific asset variants (resize, crop, compress, reformat) directly from the search bar                                                                             | Release notes 2026.7.0                                                                                                                    |
-| **Smart Collections**                    | Collections that stay current automatically from defined search criteria, storing the query instead of individual assets (Limited Availability 2026.9.0)                           | Release notes 2026.9.0                                                                                                                    |
-| **C2PA Metadata**                        | Renditions carry C2PA provenance metadata for labeling GenAI content, extended to Dynamic Media (GA 2026.8.0)                                                                      | Release notes 2026.8.0                                                                                                                    |
-| **Auto Translate & Auto Reflow**         | Dynamic Media templates: AI translates text across locales and adapts one template to other formats (Beta)                                                                         | Release notes 2026.9.0                                                                                                                    |
-| **Content Advisor Browser Extension**    | Asset recommendations surfaced inside other web applications (Beta)                                                                                                                | Release notes 2026.9.0                                                                                                                    |
-| **Smart Tags**                           | Automatic AI tagging for images and videos                                                                                                                                         | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/smart-tags)                      |
-| **Smart Crop**                           | AI-powered focal point detection and cropping                                                                                                                                      | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/images/smart-crop-feature-video-use)      |
-| **Dynamic Media AI**                     | Smart imaging and video optimization                                                                                                                                               | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/dynamic-media-overview-feature-video-use) |
-| **Content Advisor Agent**                | Natural language asset discovery and refinement                                                                                                                                    | See AI Agents above                                                                                                                       |
+| Feature                                  | Description                                                                                                                                                       | Documentation                                                                                                                             |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **AI Search**                            | Natural language asset search ("a family at the beach") without exact metadata matches; multilingual, typo-tolerant intent matching in Content Hub (GA 2026.10.0) | Release notes 2026.10.0                                                                                                                   |
+| **Brand Aware Metadata**                 | AI-generated custom metadata on upload/re-process using prompt libraries, with a prompt playground (Beta)                                                         | Release notes 2026.6.0                                                                                                                    |
+| **AI-Generated Video Captions**          | Automatic caption generation for Dynamic Media with OpenAPI videos, with multi-caption and multi-audio track support (GA 2026.10.0)                               | Release notes 2026.10.0                                                                                                                   |
+| **Assets Onboarding Agent**              | AI-guided DAM setup for new orgs - conversational planning plus auto-created folder hierarchies, tag taxonomies, and metadata forms (Beta)                        | Release notes 2026.7.0                                                                                                                    |
+| **Generate Renditions from Content Hub** | Create channel-specific asset variants (resize, crop, compress, reformat) directly from the search bar                                                            | Release notes 2026.7.0                                                                                                                    |
+| **Smart Collections**                    | Collections that stay current automatically from defined search criteria, storing the query instead of individual assets (GA 2026.10.0)                           | Release notes 2026.10.0                                                                                                                   |
+| **C2PA Metadata**                        | Renditions carry C2PA provenance metadata for labeling GenAI content, extended to Dynamic Media (GA 2026.8.0)                                                     | Release notes 2026.8.0                                                                                                                    |
+| **Auto Translate & Auto Reflow**         | Dynamic Media templates: AI translates text across locales and adapts one template to other formats (Beta)                                                        | Release notes 2026.9.0                                                                                                                    |
+| **Content Advisor Browser Extension**    | Asset recommendations surfaced inside other web applications (Beta)                                                                                               | Release notes 2026.9.0                                                                                                                    |
+| **Smart Tags**                           | Automatic AI tagging for images and videos                                                                                                                        | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/manage/smart-tags)                      |
+| **Smart Crop**                           | AI-powered focal point detection and cropping                                                                                                                     | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/images/smart-crop-feature-video-use)      |
+| **Dynamic Media AI**                     | Smart imaging and video optimization                                                                                                                              | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/dynamic-media-overview-feature-video-use) |
+| **Content Advisor Agent**                | Natural language asset discovery and refinement                                                                                                                   | See AI Agents above                                                                                                                       |
 
 ### AEM Forms
 
-| Feature                     | Description                                   | Documentation                                                                                                                             |
-| --------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Generative AI for Forms** | AI-powered form generation and panel creation | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/forms-overview/early-access-ea-features) |
-| **AI Assistant**            | Product knowledge and authoring assistance    | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem)    |
-| **Content Advisor Agent**   | Intelligent search across Adaptive Forms      | See AI Agents above                                                                                                                       |
-| **Forms Creation Job**      | Build adaptive forms through natural language | See AI Agents above                                                                                                                       |
+| Feature                                 | Description                                                                       | Documentation                                                                                                                             |
+| --------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Generative AI for Forms**             | AI-powered form generation and panel creation                                     | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/forms/forms-overview/early-access-ea-features) |
+| **AI Assistant**                        | Product knowledge and authoring assistance                                        | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/ai-in-aem/ai-assistant/ai-assistant-in-aem)    |
+| **Content Advisor Agent**               | Intelligent search across Adaptive Forms                                          | See AI Agents above                                                                                                                       |
+| **Forms Creation Job**                  | Build adaptive forms through natural language                                     | See AI Agents above                                                                                                                       |
+| **Adaptive Form Authoring in Coworker** | Chat-driven PDF/XDP import, REST API integrations, and rule authoring (2026.10.0) | See AI Agents above                                                                                                                       |
 
 ### AEM Guides
 
@@ -594,12 +616,12 @@ Product overview - see the GenStudio product page linked under Official Resource
 
 ### Migration & Modernization
 
-| Feature                            | Description                                                                                                              | Documentation                                                                                                                                                |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Experience Modernization Agent** | AI-assisted migration to Edge Delivery Services                                                                          | See AI Agents above                                                                                                                                          |
-| **Cloud Migration MCP Server**     | Migration analysis data for AEM 6.x to Cloud Service via MCP                                                             | See MCP Servers above                                                                                                                                        |
-| **Cloud Migration Agent Skill**    | AI-assisted code migration in the IDE - pattern detection across scheduler, replication, HTL, and dialog code (2026.9.0) | See Claude Code Skills above                                                                                                                                 |
-| **AEM Modernization Tools**        | Convert legacy AEM to modern patterns                                                                                    | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/migration/moving-to-aem-as-a-cloud-service/aem-modernization-tools) |
+| Feature                                | Description                                                                                                                                                                                   | Documentation                                                                                                                                                |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Experience Modernization Agent**     | AI-assisted migration to Edge Delivery Services                                                                                                                                               | See AI Agents above                                                                                                                                          |
+| **Cloud Migration via AEM MCP Server** | Cloud Migration capabilities are part of the unified AEM MCP Server as of 2026.10.0                                                                                                           | See MCP Servers above                                                                                                                                        |
+| **Cloud Migration Agent Skill**        | AI-assisted code migration in the IDE - pattern detection across scheduler, replication, HTL, dialog, and InputStream code; Oak index conversion and migration validation in beta (2026.10.0) | See Claude Code Skills above                                                                                                                                 |
+| **AEM Modernization Tools**            | Convert legacy AEM to modern patterns                                                                                                                                                         | [Docs](https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/migration/moving-to-aem-as-a-cloud-service/aem-modernization-tools) |
 
 ---
 
@@ -623,7 +645,7 @@ Adobe LLM Optimizer is a generative AI-first application designed to help brands
 | **Referral Traffic Insights**   | Track user clicks from AI citations, with model/platform change markers on charts                    | New in 2026                                                                                              |
 | **Adobe Analytics Integration** | Connect Adobe Analytics to measure referral traffic and business impact (GA)                         | New in 2026                                                                                              |
 
-LLM Optimizer is part of Adobe's Brand Visibility solution (Summit 2026, linked under Announcements above) alongside Brand Concierge and LLM Apps.
+LLM Optimizer is part of Adobe's Brand Visibility solution (Summit 2026, linked under Announcements above) alongside Brand Concierge and LLM Apps (see the next section).
 
 ### Tutorials & Guides
 
@@ -656,6 +678,62 @@ LLM Optimizer is part of Adobe's Brand Visibility solution (Summit 2026, linked 
 5. Apply optimization recommendations
 
 The official documentation home is linked under Official Resources above.
+
+## Adobe LLM Apps
+
+Brand-owned actions and interactive widgets that run inside AI assistants - ChatGPT and Claude today - built, governed, and deployed from AEM.
+
+### What It Is
+
+LLM Optimizer gets a brand mentioned in AI answers; LLM Apps makes the brand actionable there. An app groups actions such as "find a store", "compare products", or "book a service". When a user's request matches an action, the assistant calls it and renders the result as a branded widget in the conversation. Open it from AEM Experience Hub or directly at [experience.adobe.com/llm-apps](https://experience.adobe.com/llm-apps).
+
+**Availability (November 2026):** Adobe's documentation states that LLM Apps is available to all AEM Sites Cloud Service customers to develop and manage their own apps. App invocations will count toward AEM Sites Content Requests once metering begins; Adobe has not yet announced the rate or the start date. The earlier beta onboarding pages have been removed.
+
+### Building Blocks
+
+| Concept            | What it is                                                                                                                   |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| **LLM App**        | The branded unit users add to an assistant; groups all actions and deploys as one                                            |
+| **Action**         | A capability the assistant can invoke; its name, description, and input schema are managed in the LLM Apps UI, not in code   |
+| **Action handler** | Server-side function that validates input, calls your APIs, and returns text plus structured data; runs on Adobe I/O Runtime |
+| **Widget**         | The visual response (card, carousel, table, form), built as an Edge Delivery Services block and served from an EDS site      |
+| **MCP server**     | The endpoint each deployment exposes; ChatGPT and Claude connect to it to discover and invoke the actions                    |
+
+Handlers and widgets live in two separate repositories. Adobe can create and host both (managed infrastructure), or you bring your own through Cloud Manager - GitHub, GitHub Enterprise, GitLab, Bitbucket, or Azure DevOps.
+
+### Documentation
+
+| Topic                       | What it covers                                                                     | Link                                                                                                         |
+| --------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Architecture**            | How UI-managed action settings, handler code, and widget code fit together         | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/build-first-app/app-architecture)           |
+| **Set Up Infrastructure**   | Setup wizard, managed versus own repositories, Cloud Manager prerequisites         | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/build-first-app/create-app)                 |
+| **Generate Actions**        | Have the platform analyze your website and generate actions, handlers, and widgets | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/build-first-app/creating-actions)           |
+| **Create an Action**        | Build an action from scratch and connect an EDS widget                             | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/add-new-action/create-action)               |
+| **Customize Handlers**      | Replace generated sample behavior with calls to your own systems                   | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/customize-generated-app/customize-handler)  |
+| **Customize Widgets**       | Edit the generated EDS blocks, styling, and interactive controls                   | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/customize-generated-app/widgets)            |
+| **Variables & Secrets**     | App-level configuration and secrets for handlers                                   | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/customize-generated-app/app-variables)      |
+| **ChatGPT Extensions**      | Extra ChatGPT entry points and display modes for widgets                           | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/customize-generated-app/chatgpt-extensions) |
+| **End-User Authentication** | Sign users in with your own identity provider; mark actions public or protected    | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/authenticate-end-users/authentication)      |
+| **Deploy**                  | Deploy to Stage, review, and promote to Production                                 | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/deploy-and-test/deploy-your-app)            |
+| **Test in ChatGPT**         | Add the staging MCP server URL as a ChatGPT plugin                                 | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/deploy-and-test/test-in-chatgpt)            |
+| **Test in Claude**          | Add the staging MCP server URL as a Claude custom connector                        | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/deploy-and-test/test-in-claude)             |
+| **Submit to ChatGPT**       | Generate and verify the submission package for OpenAI's plugin directory           | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/submit-your-app/prepare-submission)         |
+| **Analytics**               | Report on action calls in Adobe Analytics and Customer Journey Analytics           | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/measure-your-app/analytics-setup)           |
+| **Local Development**       | Run and test handlers locally                                                      | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/reference/development)                      |
+| **Troubleshooting**         | Common deployment, connection, and widget problems                                 | [Docs](https://experienceleague.adobe.com/en/docs/llm-apps/using/reference/troubleshooting)                  |
+
+### Developer Resources
+
+- [llm-apps-boilerplate](https://github.com/adobe-rnd/llm-apps-boilerplate) - Adobe's starter repository for action handlers, with a local MCP server on port 9080 and a bundled `llm-apps-action-author` agent skill that scaffolds and validates handlers (Adobe Technology License, not open source).
+
+The server runtime is published separately as `@adobe/llm-apps-runtime` (listed under npm Packages below). It builds on the MCP TypeScript SDK and the MCP Apps extension.
+
+### Things to Know
+
+- Generated actions ship with sample behavior. Connect the handlers to real systems and review the widgets before exposing an app to customers.
+- Action metadata is owned by the LLM Apps UI. The deploy pipeline writes it into `actions.json`, so editing descriptions or schemas in the repository has no effect.
+- Analytics is uneven across platforms: ChatGPT sends full platform details, while Claude sends only the platform name and no user ID, so Customer Journey Analytics skips Claude action calls.
+- Directory submission tooling covers ChatGPT only. Claude is reached by adding the MCP server URL as a custom connector.
 
 ---
 
@@ -730,25 +808,26 @@ For AI-assisted IDEs (Cursor, Claude Code, Visual Studio, IntelliJ): detects and
 
 Official local MCP servers for the design system behind all Adobe UIs - useful when building App Builder UI extensions for AEM and Cloud Manager with React Spectrum:
 
-| Server                        | Scope                                                                                  | Links                                                                                                                                                                   |
-| ----------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **React Spectrum (S2) MCP**   | Component docs, S2 icon/illustration search, style macro values (npx, no auth)          | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/react-spectrum-mcp.md) / [Repo](https://github.com/adobe/react-spectrum)             |
-| **Spectrum Design Data MCP**  | Design tokens and component API schemas, queryable by name, type, category, or value    | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/spectrum-design-data-mcp.md) / [Repo](https://github.com/adobe/spectrum-design-data) |
-| **React Aria MCP**            | Accessible primitives documentation                                                     | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/react-aria-mcp.md)                                                                   |
+| Server                       | Scope                                                                                | Links                                                                                                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **React Spectrum (S2) MCP**  | Component docs, S2 icon/illustration search, style macro values (npx, no auth)       | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/react-spectrum-mcp.md) / [Repo](https://github.com/adobe/react-spectrum)             |
+| **Spectrum Design Data MCP** | Design tokens and component API schemas, queryable by name, type, category, or value | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/spectrum-design-data-mcp.md) / [Repo](https://github.com/adobe/spectrum-design-data) |
+| **React Aria MCP**           | Accessible primitives documentation                                                  | [Registry record](https://github.com/AdobeDocs/ai-registry-docs/blob/main/mcp-servers/react-aria-mcp.md)                                                                   |
 
 ### npm Packages
 
 #### Official Adobe Packages
 
-| Package                                                                                              | Description                            | Install                                   |
-| ---------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------------------------------------- |
-| [@adobe/aio-cli](https://www.npmjs.com/package/@adobe/aio-cli)                                       | Adobe I/O CLI - hosts App Builder, Cloud Manager, RDE, and agentic plugin workflows | `npm i -g @adobe/aio-cli`                 |
-| [@adobe/aio-cli-plugin-aem-rde](https://www.npmjs.com/package/@adobe/aio-cli-plugin-aem-rde)         | Deploy to and manage AEM Rapid Development Environments | `aio plugins:install @adobe/aio-cli-plugin-aem-rde` |
-| [@adobe/aem-cli](https://www.npmjs.com/package/@adobe/aem-cli)                                       | AEM/EDS CLI for local development      | `npm i -g @adobe/aem-cli`                 |
-| [@adobe/aem-headless-client-js](https://www.npmjs.com/package/@adobe/aem-headless-client-js)         | AEM Headless SDK Client                | `npm i @adobe/aem-headless-client-js`     |
-| [@adobe/aem-import-helper](https://www.npmjs.com/package/@adobe/aem-import-helper)                   | Helper tool for importing sites to AEM | `npm i @adobe/aem-import-helper`          |
-| [@adobe/aem-upload](https://www.npmjs.com/package/@adobe/aem-upload)                                 | AEM Assets direct binary uploading     | `npm i @adobe/aem-upload`                 |
-| [@adobe/aem-spa-page-model-manager](https://www.npmjs.com/package/@adobe/aem-spa-page-model-manager) | SPA Editor page model manager          | `npm i @adobe/aem-spa-page-model-manager` |
+| Package                                                                                              | Description                                                                         | Install                                             |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [@adobe/aio-cli](https://www.npmjs.com/package/@adobe/aio-cli)                                       | Adobe I/O CLI - hosts App Builder, Cloud Manager, RDE, and agentic plugin workflows | `npm i -g @adobe/aio-cli`                           |
+| [@adobe/aio-cli-plugin-aem-rde](https://www.npmjs.com/package/@adobe/aio-cli-plugin-aem-rde)         | Deploy to and manage AEM Rapid Development Environments                             | `aio plugins:install @adobe/aio-cli-plugin-aem-rde` |
+| [@adobe/llm-apps-runtime](https://www.npmjs.com/package/@adobe/llm-apps-runtime)                     | Server runtime for Adobe LLM Apps action handlers                                   | `npm i @adobe/llm-apps-runtime`                     |
+| [@adobe/aem-cli](https://www.npmjs.com/package/@adobe/aem-cli)                                       | AEM/EDS CLI for local development                                                   | `npm i -g @adobe/aem-cli`                           |
+| [@adobe/aem-headless-client-js](https://www.npmjs.com/package/@adobe/aem-headless-client-js)         | AEM Headless SDK Client                                                             | `npm i @adobe/aem-headless-client-js`               |
+| [@adobe/aem-import-helper](https://www.npmjs.com/package/@adobe/aem-import-helper)                   | Helper tool for importing sites to AEM                                              | `npm i @adobe/aem-import-helper`                    |
+| [@adobe/aem-upload](https://www.npmjs.com/package/@adobe/aem-upload)                                 | AEM Assets direct binary uploading                                                  | `npm i @adobe/aem-upload`                           |
+| [@adobe/aem-spa-page-model-manager](https://www.npmjs.com/package/@adobe/aem-spa-page-model-manager) | SPA Editor page model manager                                                       | `npm i @adobe/aem-spa-page-model-manager`           |
 
 #### Development Tools
 
